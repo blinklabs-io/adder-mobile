@@ -1,5 +1,8 @@
 import 'package:http/http.dart' as http;
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:logger/logger.dart';
+
+var logger = Logger();
 
 class ApiService {
   final String baseUrl;
@@ -18,7 +21,7 @@ class ApiService {
     );
 
     if (response.statusCode != 200) {
-      print("Can't read data");
+      logger.d("Response status: ${response.statusCode}");
     }
   }
 }
