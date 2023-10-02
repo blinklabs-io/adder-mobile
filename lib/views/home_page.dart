@@ -16,7 +16,7 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: Scaffold(
-        backgroundColor: Theme.of(context).backgroundColor,
+        backgroundColor: Theme.of(context).colorScheme.background,
         appBar: AppBar(
           backgroundColor: Theme.of(context).primaryColor,
           automaticallyImplyLeading: false,

@@ -60,7 +60,7 @@ class QrScannerView extends StatelessWidget {
         // Close the scanner
         Get.back();
       } else {
-        print("QR code is null");
+        logger.d("QR code is null");
       }
     });
   }
