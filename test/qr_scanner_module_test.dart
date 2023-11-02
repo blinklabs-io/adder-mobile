@@ -1,9 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:snek/module/qr_scanner_module.dart';
+import 'package:snek/viewmodels/qr_scanner_viewmodel.dart';
 
 void main() {
   test('setQrText updates the qrText observable correctly', () {
-    final qrScanner = QrScannerModule();
+    final qrScanner = QrScannerViewModel();
 
     // Verify initial value
     expect(qrScanner.qrText.value, '');

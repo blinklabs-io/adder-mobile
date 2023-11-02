@@ -2,17 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:logger/logger.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
-import 'package:snek/module/qr_scanner_module.dart';
+import 'package:snek/viewmodels/qr_scanner_viewmodel.dart';
 
 var logger = Logger();
 
 class QrScannerView extends StatelessWidget {
   final qrKey = GlobalKey(debugLabel: 'QR');
-  final qrScannerModule = Get.put(QrScannerModule());
+  final qrScannerViewModel = Get.put(QrScannerViewModel());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Scan QR Code'),
+        leading: IconButton(
+          icon: Icon(Icons.close),
+          onPressed: () => Get.back(),
+        ),
+      ),
       body: Column(
         children: <Widget>[
           Expanded(
@@ -21,44 +28,28 @@ class QrScannerView extends StatelessWidget {
               onQRViewCreated: _onQRViewCreated,
             ),
           ),
-          ElevatedButton(
-            onPressed: () => Get.back(),
-            child: Text('Close'),
-          ),
+          Obx(() {
+            if (qrScannerViewModel.snackbarMessage.isNotEmpty) {
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                Get.snackbar('Notification', qrScannerViewModel.snackbarMessage.value);
+                qrScannerViewModel.snackbarMessage.value = '';
+              });
+            }
+            return SizedBox.shrink();
+          }),
         ],
       ),
     );
   }
 
   void _onQRViewCreated(QRViewController controller) {
-    controller.scannedDataStream.listen((scanData) {
+    controller.scannedDataStream.listen((scanData) async {
       if (scanData.code != null) {
         // Pause camera scanner
-        controller.pauseCamera();
-        qrScannerModule.setQrText(scanData.code!);
+        await controller.pauseCamera();
         logger.d("QR code: ${scanData.code}");
-
-        // Display a dialog with the content of the QR code
-        Future.delayed(Duration(milliseconds: 500), () {
-          Get.dialog(
-            AlertDialog(
-              title: Text('QR Code Found'),
-              content: Text(scanData.code!),
-              actions: [
-                ElevatedButton(
-                  onPressed: () {
-                    Get.back(); // Close the dialog
-                    Get.back(); // Close the QR scanner view
-                  },
-                  child: Text('OK'),
-                ),
-              ],
-            ),
-          );
-        });
-        // Make API call here
-        // Close the scanner
-        Get.back();
+        await qrScannerViewModel.setQrText(scanData.code!);
+        await controller.resumeCamera();
       } else {
         logger.d("QR code is null");
       }

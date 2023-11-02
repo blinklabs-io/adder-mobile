@@ -9,13 +9,11 @@ Future<void> _onBackgroundMessage(RemoteMessage message) async {
   logger.d('Payload: ${message.data}');
 }
 
-class FirebaseApi {
+class NotificationService {
   final _firebaseMessaging = FirebaseMessaging.instance;
 
   Future<void> initNotifications() async {
     await _firebaseMessaging.requestPermission();
-    final fCMToken = await _firebaseMessaging.getToken();
-    logger.d("fCMToken: $fCMToken");
     FirebaseMessaging.onBackgroundMessage(_onBackgroundMessage);
   }
 }

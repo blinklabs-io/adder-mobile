@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'qr_scanner_view.dart'; // Assuming you have this file from the previous example
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key, required this.title});
+class HomeView extends StatefulWidget {
+  const HomeView({super.key, required this.title});
 
   final String title;
 
   @override
-  State<HomePage> createState() => HomePageState();
+  State<HomeView> createState() => HomeViewState();
 }
 
-class HomePageState extends State<HomePage> {
+class HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
