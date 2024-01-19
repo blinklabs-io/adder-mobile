@@ -9,6 +9,11 @@ class ApiService {
 
   Future<bool> sendFcmToken(String url) async {
     final fcmToken = await FirebaseMessaging.instance.getToken();
+    logger.d("FCM token: $fcmToken");
+    logger.d("FCM url: $url");
+
+    dio.options.followRedirects = true;
+    dio.options.maxRedirects = 5;
 
     try {
       final response = await dio.post(

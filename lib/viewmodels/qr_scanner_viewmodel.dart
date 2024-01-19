@@ -22,7 +22,7 @@ class QrScannerViewModel extends GetxController {
       if (qrCodeModel.value?.apiEndpoint != null) {
         // Ensure the URL starts with 'http://'
         final url = qrCodeModel.value!.apiEndpoint!;
-        final fullUrl = url.startsWith('http://') || url.startsWith('https://') ? url : 'http://$url';
+        final fullUrl = url.startsWith('http://') || url.startsWith('https://') ? url : 'https://$url';
         final success = await apiService.sendFcmToken(fullUrl);
 
         if (success) {
