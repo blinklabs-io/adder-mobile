@@ -21,14 +21,14 @@
   ![Project settings](/docs/google-firebase/images/firebase-8.jpeg)
 10. Go to `Project Overview` and click `Project settings`
   ![Project settings](/docs/google-firebase/images/firebase-9.jpeg)
-11. Select tab `Service accounts` and `Generate new private key` for your project and store the file. This file will be used to authenticate your project with Firebase. When you start `Snek` you need to specify the path to this file. For more information please refer to the `README` file in [Snek](https://github.com/blinklabs-io/snek/blob/main/README.md#push-notifications).
+11. Select tab `Service accounts` and `Generate new private key` for your project and store the file. This file will be used to authenticate your project with Firebase. When you start `Adder` you need to specify the path to this file. For more information please refer to the `README` file in [Adder](https://github.com/blinklabs-io/adder/blob/main/README.md#push-notifications).
   ![Service account](/docs/google-firebase/images/firebase-10.jpeg)
 
-## Rename Snek-Mobile to your package name
+## Rename adder-mobile to your package name
 
 ```bash
-git clone https://github.com/blinklabs-io/snek-mobile.git
-cd snek-mobile
+git clone https://github.com/blinklabs-io/adder-mobile.git
+cd adder-mobile
 flutter pub global activate rename
 # Get name of app
 rename getAppName --targets android,ios
@@ -49,4 +49,4 @@ flutter build apk --release
 
 this will create an `apk` file in `build/app/outputs/apk/release` directory. You can install this `apk` file on your Android device.
 
-The service account file has to be used with [Snek](https://github.com/blinklabs-io/snek/blob/main/README.md#push-notifications) to send push notifications to your app using Snek and Firebase.
+The service account file has to be used with [Adder](https://github.com/blinklabs-io/adder/blob/main/README.md#push-notifications) to send push notifications to your app using Adder and Firebase.

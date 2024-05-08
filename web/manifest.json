@@ -1,6 +1,6 @@
 {
-    "name": "snek",
-    "short_name": "snek",
+    "name": "adder",
+    "short_name": "adder",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

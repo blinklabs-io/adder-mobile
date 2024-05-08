@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'home_view.dart';
 
-class Snek extends StatelessWidget {
-  const Snek({super.key});
+class Adder extends StatelessWidget {
+  const Adder({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,10 +11,10 @@ class Snek extends StatelessWidget {
       // Title is the app name
       title: 'Snek',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 26, 97, 251)),
+        colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 203, 158, 110)),
         useMaterial3: true,
       ),
-      home: const HomeView(title: 'Snek Mobile'),
+      home: const HomeView(title: 'Adder Mobile'),
     );
   }
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:logger/logger.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
-import 'package:snek/viewmodels/qr_scanner_viewmodel.dart';
+import 'package:adder/viewmodels/qr_scanner_viewmodel.dart';
 
 var logger = Logger();
 

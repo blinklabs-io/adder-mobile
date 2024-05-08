@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "io.blinklabs" "\0"
-            VALUE "FileDescription", "snek" "\0"
+            VALUE "FileDescription", "adder" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "snek" "\0"
+            VALUE "InternalName", "adder" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 io.blinklabs. All rights reserved." "\0"
-            VALUE "OriginalFilename", "snek.exe" "\0"
-            VALUE "ProductName", "snek" "\0"
+            VALUE "OriginalFilename", "adder.exe" "\0"
+            VALUE "ProductName", "adder" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

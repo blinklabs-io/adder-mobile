@@ -1,5 +1,6 @@
-# snek-mobile
-Mobile app for receiving snek push notifications
+# adder-mobile
+
+Mobile app for receiving adder push notifications
 
 ## TODOs
 

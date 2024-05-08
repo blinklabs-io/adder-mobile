@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:get/get.dart';
-import 'package:snek/services/api_service.dart';
-import 'package:snek/models/qr_code_model.dart';
+import 'package:adder/services/api_service.dart';
+import 'package:adder/models/qr_code_model.dart';
 
 class QrScannerViewModel extends GetxController {
   final qrText = ''.obs;
