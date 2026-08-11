@@ -1,4 +1,5 @@
-name: Build Flutter APK
+# Generated automatically by org-governance-bot. Do not edit manually.
+name: "Build Flutter APK"
 
 on:
   push:
@@ -6,34 +7,15 @@ on:
       - main
 
 jobs:
-  build:
-    name: Build APK
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2 https://github.com/actions/checkout/releases/tag/v4.2.2
-
-    - name: Setup Flutter
-      uses: subosito/flutter-action@e938fdf56512cc96ef2f93601a5a40bde3801046 # v2.19.0 https://github.com/subosito/flutter-action/releases/tag/v2.19.0
-      with:
-        flutter-version: '3.22.0'
-        channel: 'stable'
-
-    - name: Install dependencies
-      run: flutter pub get
-
-    - name: Create google-services.json
-      run: echo '${{ secrets.GOOGLE_SERVICES_JSON }}' > android/app/google-services.json
-
-    - name: Build APK
-      run: flutter build apk --release
-
-    - name: Rename APK with version
-      run: mv build/app/outputs/flutter-apk/app-release.apk build/app/outputs/flutter-apk/app-${{ github.ref_name }}-release.apk
-
-    - name: Upload APK
-      uses: actions/upload-artifact@ff15f0306b3f739f7b6fd43fb5d26cd321bd4de5 # v3.2.1 https://github.com/actions/upload-artifact/releases/tag/v3.2.1
-      with:
-        name: app-${{ github.ref_name }}-release.apk
-        path: build/app/outputs/flutter-apk/app-${{ github.ref_name }}-release.apk
+  orchestrate:
+    uses: blinklabs-io/actions/.github/workflows/reuseable-flutter.yml@main
+    secrets:
+      GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
+    with:
+      apk-artifact-name: app-${{ github.ref_name }}-release.apk
+      build-apk: true
+      channel: stable
+      create-google-services: true
+      flutter-version: 3.22.0
+      run-analyze: false
+      run-tests: false
