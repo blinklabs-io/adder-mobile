@@ -1,0 +1,70 @@
+{
+  "expo": {
+    "name": "Adder",
+    "slug": "adder",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon/adder-icon.png",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "bundleIdentifier": "io.blinklabs.adder",
+      "googleServicesFile": "./GoogleService-Info.plist",
+      "supportsTablet": false,
+      "entitlements": {
+        "aps-environment": "production"
+      },
+      "infoPlist": {
+        "UIBackgroundModes": [
+          "remote-notification"
+        ]
+      }
+    },
+    "android": {
+      "package": "io.blinklabs.adder",
+      "googleServicesFile": "./google-services.json",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon/adder-icon.png",
+        "backgroundColor": "#F5EFE6"
+      },
+      "permissions": [
+        "android.permission.POST_NOTIFICATIONS"
+      ]
+    },
+    "plugins": [
+      "@react-native-firebase/app",
+      "@react-native-firebase/messaging",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Adder needs the camera to scan QR codes."
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static"
+          }
+        }
+      ],
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/SpaceGrotesk-Bold.ttf",
+            "./assets/fonts/SpaceGrotesk-Medium.ttf"
+          ]
+        }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/icon/adder-icon.png",
+          "resizeMode": "contain",
+          "backgroundColor": "#F5EFE6",
+          "imageWidth": 160
+        }
+      ]
+    ]
+  }
+}
