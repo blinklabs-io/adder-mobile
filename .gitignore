@@ -75,3 +75,6 @@ GoogleService-Info.plist
 *.mobileprovision
 *.orig.*
 web-build/
+
+# Local Impeccable review captures (published copies live in docs/screenshots)
+.impeccable/review/

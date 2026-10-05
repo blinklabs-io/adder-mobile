@@ -1,0 +1,595 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-05T21:16:14.291Z",
+  "title": "Design System: Adder",
+  "extensions": {
+    "colorMeta": {
+      "paper-light": {
+        "role": "neutral",
+        "displayName": "Lavender ground · light",
+        "tonalRamp": [
+          "oklch(15.00% 0.01068 291.95)",
+          "oklch(26.43% 0.01068 291.95)",
+          "oklch(37.86% 0.01068 291.95)",
+          "oklch(49.29% 0.01068 291.95)",
+          "oklch(60.71% 0.01068 291.95)",
+          "oklch(72.14% 0.01068 291.95)",
+          "oklch(83.57% 0.01068 291.95)",
+          "oklch(95.00% 0.01068 291.95)"
+        ]
+      },
+      "panel-light": {
+        "role": "neutral",
+        "displayName": "Instance panel · light",
+        "tonalRamp": [
+          "oklch(15.00% 0.02451 296.10)",
+          "oklch(26.43% 0.02451 296.10)",
+          "oklch(37.86% 0.02451 296.10)",
+          "oklch(49.29% 0.02451 296.10)",
+          "oklch(60.71% 0.02451 296.10)",
+          "oklch(72.14% 0.02451 296.10)",
+          "oklch(83.57% 0.02451 296.10)",
+          "oklch(95.00% 0.02451 296.10)"
+        ]
+      },
+      "card-light": {
+        "role": "neutral",
+        "displayName": "Record surface · light",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 0.00)",
+          "oklch(26.43% 0.00000 0.00)",
+          "oklch(37.86% 0.00000 0.00)",
+          "oklch(49.29% 0.00000 0.00)",
+          "oklch(60.71% 0.00000 0.00)",
+          "oklch(72.14% 0.00000 0.00)",
+          "oklch(83.57% 0.00000 0.00)",
+          "oklch(95.00% 0.00000 0.00)"
+        ]
+      },
+      "rule-light": {
+        "role": "neutral",
+        "displayName": "Fine rule · light",
+        "tonalRamp": [
+          "oklch(15.00% 0.02612 295.52)",
+          "oklch(26.43% 0.02612 295.52)",
+          "oklch(37.86% 0.02612 295.52)",
+          "oklch(49.29% 0.02612 295.52)",
+          "oklch(60.71% 0.02612 295.52)",
+          "oklch(72.14% 0.02612 295.52)",
+          "oklch(83.57% 0.02612 295.52)",
+          "oklch(95.00% 0.02612 295.52)"
+        ]
+      },
+      "ink-light": {
+        "role": "neutral",
+        "displayName": "Primary ink · light",
+        "tonalRamp": [
+          "oklch(15.00% 0.04080 291.68)",
+          "oklch(26.43% 0.04080 291.68)",
+          "oklch(37.86% 0.04080 291.68)",
+          "oklch(49.29% 0.04080 291.68)",
+          "oklch(60.71% 0.04080 291.68)",
+          "oklch(72.14% 0.04080 291.68)",
+          "oklch(83.57% 0.04080 291.68)",
+          "oklch(95.00% 0.04080 291.68)"
+        ]
+      },
+      "ink-secondary-light": {
+        "role": "neutral",
+        "displayName": "Secondary ink · light",
+        "tonalRamp": [
+          "oklch(15.00% 0.03690 299.00)",
+          "oklch(26.43% 0.03690 299.00)",
+          "oklch(37.86% 0.03690 299.00)",
+          "oklch(49.29% 0.03690 299.00)",
+          "oklch(60.71% 0.03690 299.00)",
+          "oklch(72.14% 0.03690 299.00)",
+          "oklch(83.57% 0.03690 299.00)",
+          "oklch(95.00% 0.03690 299.00)"
+        ]
+      },
+      "accent-light": {
+        "role": "primary",
+        "displayName": "Action violet · light",
+        "tonalRamp": [
+          "oklch(15.00% 0.19291 289.31)",
+          "oklch(26.43% 0.19291 289.31)",
+          "oklch(37.86% 0.19291 289.31)",
+          "oklch(49.29% 0.19291 289.31)",
+          "oklch(60.71% 0.19291 289.31)",
+          "oklch(72.14% 0.19291 289.31)",
+          "oklch(83.57% 0.19291 289.31)",
+          "oklch(95.00% 0.19291 289.31)"
+        ]
+      },
+      "accent-soft-light": {
+        "role": "primary",
+        "displayName": "Violet wash · light",
+        "tonalRamp": [
+          "oklch(15.00% 0.03862 298.69)",
+          "oklch(26.43% 0.03862 298.69)",
+          "oklch(37.86% 0.03862 298.69)",
+          "oklch(49.29% 0.03862 298.69)",
+          "oklch(60.71% 0.03862 298.69)",
+          "oklch(72.14% 0.03862 298.69)",
+          "oklch(83.57% 0.03862 298.69)",
+          "oklch(95.00% 0.03862 298.69)"
+        ]
+      },
+      "on-accent-light": {
+        "role": "primary",
+        "displayName": "Action contrast · light",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 0.00)",
+          "oklch(26.43% 0.00000 0.00)",
+          "oklch(37.86% 0.00000 0.00)",
+          "oklch(49.29% 0.00000 0.00)",
+          "oklch(60.71% 0.00000 0.00)",
+          "oklch(72.14% 0.00000 0.00)",
+          "oklch(83.57% 0.00000 0.00)",
+          "oklch(95.00% 0.00000 0.00)"
+        ]
+      },
+      "signal-light": {
+        "role": "secondary",
+        "displayName": "Received amber · light",
+        "tonalRamp": [
+          "oklch(15.00% 0.10469 84.32)",
+          "oklch(26.43% 0.10469 84.32)",
+          "oklch(37.86% 0.10469 84.32)",
+          "oklch(49.29% 0.10469 84.32)",
+          "oklch(60.71% 0.10469 84.32)",
+          "oklch(72.14% 0.10469 84.32)",
+          "oklch(83.57% 0.10469 84.32)",
+          "oklch(95.00% 0.10469 84.32)"
+        ]
+      },
+      "signal-soft-light": {
+        "role": "secondary",
+        "displayName": "Amber wash · light",
+        "tonalRamp": [
+          "oklch(15.00% 0.05644 92.87)",
+          "oklch(26.43% 0.05644 92.87)",
+          "oklch(37.86% 0.05644 92.87)",
+          "oklch(49.29% 0.05644 92.87)",
+          "oklch(60.71% 0.05644 92.87)",
+          "oklch(72.14% 0.05644 92.87)",
+          "oklch(83.57% 0.05644 92.87)",
+          "oklch(95.00% 0.05644 92.87)"
+        ]
+      },
+      "alarm-light": {
+        "role": "tertiary",
+        "displayName": "Error rose · light",
+        "tonalRamp": [
+          "oklch(15.00% 0.16878 14.23)",
+          "oklch(26.43% 0.16878 14.23)",
+          "oklch(37.86% 0.16878 14.23)",
+          "oklch(49.29% 0.16878 14.23)",
+          "oklch(60.71% 0.16878 14.23)",
+          "oklch(72.14% 0.16878 14.23)",
+          "oklch(83.57% 0.16878 14.23)",
+          "oklch(95.00% 0.16878 14.23)"
+        ]
+      },
+      "alarm-soft-light": {
+        "role": "tertiary",
+        "displayName": "Rose wash · light",
+        "tonalRamp": [
+          "oklch(15.00% 0.02457 5.10)",
+          "oklch(26.43% 0.02457 5.10)",
+          "oklch(37.86% 0.02457 5.10)",
+          "oklch(49.29% 0.02457 5.10)",
+          "oklch(60.71% 0.02457 5.10)",
+          "oklch(72.14% 0.02457 5.10)",
+          "oklch(83.57% 0.02457 5.10)",
+          "oklch(95.00% 0.02457 5.10)"
+        ]
+      },
+      "paper-dark": {
+        "role": "neutral",
+        "displayName": "Lavender ground · dark",
+        "tonalRamp": [
+          "oklch(15.00% 0.02569 294.68)",
+          "oklch(26.43% 0.02569 294.68)",
+          "oklch(37.86% 0.02569 294.68)",
+          "oklch(49.29% 0.02569 294.68)",
+          "oklch(60.71% 0.02569 294.68)",
+          "oklch(72.14% 0.02569 294.68)",
+          "oklch(83.57% 0.02569 294.68)",
+          "oklch(95.00% 0.02569 294.68)"
+        ]
+      },
+      "panel-dark": {
+        "role": "neutral",
+        "displayName": "Instance panel · dark",
+        "tonalRamp": [
+          "oklch(15.00% 0.03571 295.89)",
+          "oklch(26.43% 0.03571 295.89)",
+          "oklch(37.86% 0.03571 295.89)",
+          "oklch(49.29% 0.03571 295.89)",
+          "oklch(60.71% 0.03571 295.89)",
+          "oklch(72.14% 0.03571 295.89)",
+          "oklch(83.57% 0.03571 295.89)",
+          "oklch(95.00% 0.03571 295.89)"
+        ]
+      },
+      "card-dark": {
+        "role": "neutral",
+        "displayName": "Record surface · dark",
+        "tonalRamp": [
+          "oklch(15.00% 0.03985 296.46)",
+          "oklch(26.43% 0.03985 296.46)",
+          "oklch(37.86% 0.03985 296.46)",
+          "oklch(49.29% 0.03985 296.46)",
+          "oklch(60.71% 0.03985 296.46)",
+          "oklch(72.14% 0.03985 296.46)",
+          "oklch(83.57% 0.03985 296.46)",
+          "oklch(95.00% 0.03985 296.46)"
+        ]
+      },
+      "rule-dark": {
+        "role": "neutral",
+        "displayName": "Fine rule · dark",
+        "tonalRamp": [
+          "oklch(15.00% 0.04497 300.14)",
+          "oklch(26.43% 0.04497 300.14)",
+          "oklch(37.86% 0.04497 300.14)",
+          "oklch(49.29% 0.04497 300.14)",
+          "oklch(60.71% 0.04497 300.14)",
+          "oklch(72.14% 0.04497 300.14)",
+          "oklch(83.57% 0.04497 300.14)",
+          "oklch(95.00% 0.04497 300.14)"
+        ]
+      },
+      "ink-dark": {
+        "role": "neutral",
+        "displayName": "Primary ink · dark",
+        "tonalRamp": [
+          "oklch(15.00% 0.01651 301.21)",
+          "oklch(26.43% 0.01651 301.21)",
+          "oklch(37.86% 0.01651 301.21)",
+          "oklch(49.29% 0.01651 301.21)",
+          "oklch(60.71% 0.01651 301.21)",
+          "oklch(72.14% 0.01651 301.21)",
+          "oklch(83.57% 0.01651 301.21)",
+          "oklch(95.00% 0.01651 301.21)"
+        ]
+      },
+      "ink-secondary-dark": {
+        "role": "neutral",
+        "displayName": "Secondary ink · dark",
+        "tonalRamp": [
+          "oklch(15.00% 0.03790 301.27)",
+          "oklch(26.43% 0.03790 301.27)",
+          "oklch(37.86% 0.03790 301.27)",
+          "oklch(49.29% 0.03790 301.27)",
+          "oklch(60.71% 0.03790 301.27)",
+          "oklch(72.14% 0.03790 301.27)",
+          "oklch(83.57% 0.03790 301.27)",
+          "oklch(95.00% 0.03790 301.27)"
+        ]
+      },
+      "accent-dark": {
+        "role": "primary",
+        "displayName": "Action violet · dark",
+        "tonalRamp": [
+          "oklch(15.00% 0.11792 296.93)",
+          "oklch(26.43% 0.11792 296.93)",
+          "oklch(37.86% 0.11792 296.93)",
+          "oklch(49.29% 0.11792 296.93)",
+          "oklch(60.71% 0.11792 296.93)",
+          "oklch(72.14% 0.11792 296.93)",
+          "oklch(83.57% 0.11792 296.93)",
+          "oklch(95.00% 0.11792 296.93)"
+        ]
+      },
+      "accent-soft-dark": {
+        "role": "primary",
+        "displayName": "Violet wash · dark",
+        "tonalRamp": [
+          "oklch(15.00% 0.07496 298.41)",
+          "oklch(26.43% 0.07496 298.41)",
+          "oklch(37.86% 0.07496 298.41)",
+          "oklch(49.29% 0.07496 298.41)",
+          "oklch(60.71% 0.07496 298.41)",
+          "oklch(72.14% 0.07496 298.41)",
+          "oklch(83.57% 0.07496 298.41)",
+          "oklch(95.00% 0.07496 298.41)"
+        ]
+      },
+      "on-accent-dark": {
+        "role": "primary",
+        "displayName": "Action contrast · dark",
+        "tonalRamp": [
+          "oklch(15.00% 0.06589 299.89)",
+          "oklch(26.43% 0.06589 299.89)",
+          "oklch(37.86% 0.06589 299.89)",
+          "oklch(49.29% 0.06589 299.89)",
+          "oklch(60.71% 0.06589 299.89)",
+          "oklch(72.14% 0.06589 299.89)",
+          "oklch(83.57% 0.06589 299.89)",
+          "oklch(95.00% 0.06589 299.89)"
+        ]
+      },
+      "signal-dark": {
+        "role": "secondary",
+        "displayName": "Received amber · dark",
+        "tonalRamp": [
+          "oklch(15.00% 0.11793 89.47)",
+          "oklch(26.43% 0.11793 89.47)",
+          "oklch(37.86% 0.11793 89.47)",
+          "oklch(49.29% 0.11793 89.47)",
+          "oklch(60.71% 0.11793 89.47)",
+          "oklch(72.14% 0.11793 89.47)",
+          "oklch(83.57% 0.11793 89.47)",
+          "oklch(95.00% 0.11793 89.47)"
+        ]
+      },
+      "signal-soft-dark": {
+        "role": "secondary",
+        "displayName": "Amber wash · dark",
+        "tonalRamp": [
+          "oklch(15.00% 0.04448 87.92)",
+          "oklch(26.43% 0.04448 87.92)",
+          "oklch(37.86% 0.04448 87.92)",
+          "oklch(49.29% 0.04448 87.92)",
+          "oklch(60.71% 0.04448 87.92)",
+          "oklch(72.14% 0.04448 87.92)",
+          "oklch(83.57% 0.04448 87.92)",
+          "oklch(95.00% 0.04448 87.92)"
+        ]
+      },
+      "alarm-dark": {
+        "role": "tertiary",
+        "displayName": "Error rose · dark",
+        "tonalRamp": [
+          "oklch(15.00% 0.11698 8.01)",
+          "oklch(26.43% 0.11698 8.01)",
+          "oklch(37.86% 0.11698 8.01)",
+          "oklch(49.29% 0.11698 8.01)",
+          "oklch(60.71% 0.11698 8.01)",
+          "oklch(72.14% 0.11698 8.01)",
+          "oklch(83.57% 0.11698 8.01)",
+          "oklch(95.00% 0.11698 8.01)"
+        ]
+      },
+      "alarm-soft-dark": {
+        "role": "tertiary",
+        "displayName": "Rose wash · dark",
+        "tonalRamp": [
+          "oklch(15.00% 0.05584 355.17)",
+          "oklch(26.43% 0.05584 355.17)",
+          "oklch(37.86% 0.05584 355.17)",
+          "oklch(49.29% 0.05584 355.17)",
+          "oklch(60.71% 0.05584 355.17)",
+          "oklch(72.14% 0.05584 355.17)",
+          "oklch(83.57% 0.05584 355.17)",
+          "oklch(95.00% 0.05584 355.17)"
+        ]
+      },
+      "camera": {
+        "role": "neutral",
+        "displayName": "Camera ground",
+        "tonalRamp": [
+          "oklch(15.00% 0.02808 290.04)",
+          "oklch(26.43% 0.02808 290.04)",
+          "oklch(37.86% 0.02808 290.04)",
+          "oklch(49.29% 0.02808 290.04)",
+          "oklch(60.71% 0.02808 290.04)",
+          "oklch(72.14% 0.02808 290.04)",
+          "oklch(83.57% 0.02808 290.04)",
+          "oklch(95.00% 0.02808 290.04)"
+        ]
+      },
+      "camera-ink": {
+        "role": "neutral",
+        "displayName": "Camera ink",
+        "tonalRamp": [
+          "oklch(15.00% 0.00000 0.00)",
+          "oklch(26.43% 0.00000 0.00)",
+          "oklch(37.86% 0.00000 0.00)",
+          "oklch(49.29% 0.00000 0.00)",
+          "oklch(60.71% 0.00000 0.00)",
+          "oklch(72.14% 0.00000 0.00)",
+          "oklch(83.57% 0.00000 0.00)",
+          "oklch(95.00% 0.00000 0.00)"
+        ]
+      },
+      "camera-muted": {
+        "role": "neutral",
+        "displayName": "Camera muted",
+        "tonalRamp": [
+          "oklch(15.00% 0.03469 296.66)",
+          "oklch(26.43% 0.03469 296.66)",
+          "oklch(37.86% 0.03469 296.66)",
+          "oklch(49.29% 0.03469 296.66)",
+          "oklch(60.71% 0.03469 296.66)",
+          "oklch(72.14% 0.03469 296.66)",
+          "oklch(83.57% 0.03469 296.66)",
+          "oklch(95.00% 0.03469 296.66)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "headline": {
+        "displayName": "Native headline",
+        "purpose": "Default Display helper; screen titles use local sizes."
+      },
+      "title": {
+        "displayName": "Record title",
+        "purpose": "Event and pairing titles."
+      },
+      "body": {
+        "displayName": "Native body",
+        "purpose": "Main prose and settings rows; native system font scaling remains enabled."
+      },
+      "label": {
+        "displayName": "Supporting label",
+        "purpose": "Captions, session count, scanner instruction, and disclosure."
+      },
+      "metadata": {
+        "displayName": "Metadata",
+        "purpose": "Time, Latest, tab names, payload keys, and version."
+      },
+      "button": {
+        "displayName": "Button label",
+        "purpose": "Shared Button title."
+      },
+      "mono-ios": {
+        "displayName": "iOS data",
+        "purpose": "Menlo for endpoint and payload values."
+      },
+      "mono-android": {
+        "displayName": "Android data",
+        "purpose": "Platform monospace for endpoint and payload values."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "event-disclosure",
+        "value": "opacity 0.4 to 1; 180ms; Animated.timing",
+        "purpose": "Opening event data. Shared Reduce Motion removes the fade."
+      },
+      {
+        "name": "scanner-modal",
+        "value": "native slide; none when reduced motion is enabled",
+        "purpose": "Dismissible scanner presentation controlled by the shared useReducedMotion hook."
+      },
+      {
+        "name": "button-pressed",
+        "value": "opacity 0.75",
+        "purpose": "Shared Button press feedback; explicitly disabled opacity is 0.45."
+      },
+      {
+        "name": "event-pressed",
+        "value": "opacity 0.72",
+        "purpose": "Event record press feedback."
+      },
+      {
+        "name": "text-action-pressed",
+        "value": "opacity 0.65",
+        "purpose": "Copy and unlink press feedback."
+      }
+    ],
+    "breakpoints": []
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Native Button translated to a panel sample, including press and disabled states.",
+      "html": "<button class=\"ds-button-primary\">Scan QR code</button>",
+      "css": ".ds-button-primary{min-height:52px;padding:14px 20px;border:0;border-radius:12px;background:#6442C5;color:#FFFFFF;font:700 16px system-ui;letter-spacing:-.3px;cursor:pointer}.ds-button-primary:hover,.ds-button-primary:active{opacity:.75}.ds-button-primary:focus-visible{outline:2px solid #6442C5;outline-offset:3px}.ds-button-primary:disabled{opacity:.45;cursor:default}@media(prefers-color-scheme:dark){.ds-button-primary{background:#C4ACFF;color:#241639}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Native Button translated to a panel sample, including press and disabled states.",
+      "html": "<button class=\"ds-button-secondary\">Scan a new QR code</button>",
+      "css": ".ds-button-secondary{min-height:52px;padding:14px 20px;border:0;border-radius:12px;background:#E7DFFB;color:#6442C5;font:700 16px system-ui;letter-spacing:-.3px;cursor:pointer}.ds-button-secondary:hover,.ds-button-secondary:active{opacity:.75}.ds-button-secondary:focus-visible{outline:2px solid #6442C5;outline-offset:3px}.ds-button-secondary:disabled{opacity:.45;cursor:default}@media(prefers-color-scheme:dark){.ds-button-secondary{background:#3D2E59;color:#C4ACFF}"
+    },
+    {
+      "name": "Alarm Button",
+      "kind": "button",
+      "refersTo": "button-alarm",
+      "description": "Implemented shared variant; current screens do not mount it.",
+      "html": "<button class=\"ds-button-alarm\">Alarm action</button>",
+      "css": ".ds-button-alarm{min-height:52px;padding:14px 20px;border:0;border-radius:12px;background:#FCE6EA;color:#B6314B;font:700 16px system-ui;letter-spacing:-.3px;cursor:pointer}.ds-button-alarm:hover,.ds-button-alarm:active{opacity:.75}.ds-button-alarm:focus-visible{outline:2px solid #6442C5;outline-offset:3px}.ds-button-alarm:disabled{opacity:.45;cursor:default}@media(prefers-color-scheme:dark){.ds-button-alarm{background:#4B2836;color:#FF9EB0}"
+    },
+    {
+      "name": "Linked Instance",
+      "kind": "card",
+      "refersTo": "linked-instance",
+      "description": "Tonal endpoint group with selectable host. Inline SVG approximates the native link symbol for this preview.",
+      "html": "<div class=\"ds-linked\"><svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" aria-hidden=\"true\"><path d=\"m9 15 6-6M8 16l-1 1a4 4 0 0 1-6-6l4-4a4 4 0 0 1 6 0M16 8l1-1a4 4 0 0 1 6 6l-4 4a4 4 0 0 1-6 0\" transform=\"translate(1 1) scale(.9)\"/></svg><div class=\"ds-linked-data\"><span>Linked to</span><code>adder.example.com</code></div></div>",
+      "css": ".ds-linked{display:flex;align-items:center;gap:12px;padding:18px;background:#E9E5F7;border-radius:16px;color:#6442C5;font-family:system-ui}.ds-linked svg{width:26px;height:26px;flex-shrink:0}.ds-linked-data{display:flex;flex-direction:column;gap:5px;min-width:0}.ds-linked span{color:#686178;font-size:13px;line-height:19px}.ds-linked code{font:14px Menlo,monospace;color:#252137;overflow-wrap:anywhere}@media(prefers-color-scheme:dark){.ds-linked{background:#252033;color:#C4ACFF}.ds-linked span{color:#B7AEC8}.ds-linked code{color:#F1EDF9}}"
+    },
+    {
+      "name": "Event Record",
+      "kind": "custom",
+      "refersTo": "event-record",
+      "description": "Inspectable record with a chronology node. Sample values are illustrative; disclosure matches the implemented native structure.",
+      "html": "<div class=\"ds-event\"><div class=\"ds-event-rail\"><i></i></div><details class=\"ds-event-card\"><summary><span class=\"ds-event-meta\"><span>now</span><strong>Latest</strong></span><span class=\"ds-event-title\">Chain event received</span><span class=\"ds-event-body\">A new observation is available.</span><span class=\"ds-event-show\">View event data <svg viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"m4 6 4 4 4-4\"/></svg></span><span class=\"ds-event-hide\">Hide event data <svg viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"m4 10 4-4 4 4\"/></svg></span></summary><div class=\"ds-event-data\"><span>event_id</span><code>example-event-01</code><span>network</span><code>example-network</code></div></details></div>",
+      "css": ".ds-event{display:flex;gap:10px;font-family:system-ui;background:#F3F2FA}.ds-event-rail{width:24px;flex-shrink:0;display:flex;justify-content:center}.ds-event-rail i{display:block;width:7px;height:7px;margin-top:22px;border:2px solid #826000;border-radius:6px;background:#826000}.ds-event-card{flex:1;min-width:0;background:#fff;border-radius:16px;overflow:hidden;color:#252137}.ds-event-card summary{display:flex;flex-direction:column;gap:8px;padding:16px;list-style:none;cursor:pointer}.ds-event-card summary::-webkit-details-marker{display:none}.ds-event-card summary:hover,.ds-event-card summary:active{opacity:.72}.ds-event-card summary:focus-visible{outline:2px solid #6442C5;outline-offset:-3px}.ds-event-meta{display:flex;justify-content:space-between;gap:8px;font-size:12px;line-height:17px;color:#686178}.ds-event-meta strong{font-weight:600;color:#826000}.ds-event-title{font-size:18px;font-weight:700;letter-spacing:-.3px}.ds-event-body{font-size:17px;line-height:25px;color:#686178}.ds-event-show,.ds-event-hide{margin-top:4px;color:#6442C5;font-size:13px;line-height:19px;font-weight:600}.ds-event-hide{display:none}.ds-event-card[open] .ds-event-show{display:none}.ds-event-card[open] .ds-event-hide{display:block}.ds-event-data{display:grid;gap:4px;padding:0 16px 16px;animation:ds-event-reveal 180ms}.ds-event-data span{font-size:12px;line-height:17px;color:#686178}.ds-event-data code{font:13px Menlo,monospace;overflow-wrap:anywhere;margin-bottom:8px}@keyframes ds-event-reveal{from{opacity:.4}to{opacity:1}}@media(prefers-reduced-motion:reduce){.ds-event-data{animation:none}}@media(prefers-color-scheme:dark){.ds-event{background:#191623}.ds-event-card{background:#302A40;color:#F1EDF9}.ds-event-meta,.ds-event-body,.ds-event-data span{color:#B7AEC8}.ds-event-meta strong{color:#E8C66A}.ds-event-rail i{background:#E8C66A;border-color:#E8C66A}.ds-event-show,.ds-event-hide{color:#C4ACFF}}.ds-event-show svg,.ds-event-hide svg{vertical-align:middle}"
+    },
+    {
+      "name": "Settings Group",
+      "kind": "card",
+      "refersTo": "settings-group",
+      "description": "Grouped native information rows with an inset divider and full-size Copy control. Copy is a visual sample.",
+      "html": "<div class=\"ds-settings\"><div class=\"ds-settings-row\"><span>Notifications</span><span class=\"ds-settings-muted\">Allowed</span></div><div class=\"ds-settings-rule\"></div><div class=\"ds-settings-token\"><span>Push token</span><div><code>example123…456abc</code><button>Copy</button></div></div></div>",
+      "css": ".ds-settings{background:#fff;border-radius:16px;color:#252137;font:17px/25px system-ui;overflow:hidden}.ds-settings-row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;padding:18px}.ds-settings-muted{color:#686178}.ds-settings-rule{height:1px;margin-left:18px;background:#DCD8EB}.ds-settings-token{padding:18px;display:flex;flex-direction:column;gap:8px}.ds-settings-token>div{display:flex;gap:8px;align-items:center}.ds-settings-token code{flex:1;font:13px Menlo,monospace;color:#686178;overflow-wrap:anywhere}.ds-settings-token button{min-height:48px;min-width:48px;padding:0;border:0;background:transparent;color:#6442C5;font:600 17px/25px system-ui;cursor:pointer}.ds-settings-token button:hover,.ds-settings-token button:active{opacity:.65}.ds-settings-token button:focus-visible{outline:2px solid #6442C5}@media(prefers-color-scheme:dark){.ds-settings{background:#302A40;color:#F1EDF9}.ds-settings-muted,.ds-settings-token code{color:#B7AEC8}.ds-settings-rule{background:#463D57}.ds-settings-token button{color:#C4ACFF}}"
+    },
+    {
+      "name": "iOS Tab Bar",
+      "kind": "nav",
+      "refersTo": "tab-bar",
+      "description": "Color and weight signal selection; the symbol container stays transparent. SVG preview icons approximate native SF Symbols.",
+      "html": "<nav class=\"ds-tabs-ios\" aria-label=\"Adder\"><button aria-current=\"page\"><span><svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" aria-hidden=\"true\"><path d=\"M8 6h13M8 12h13M8 18h13\"/><circle cx=\"3\" cy=\"6\" r=\".6\"/><circle cx=\"3\" cy=\"12\" r=\".6\"/><circle cx=\"3\" cy=\"18\" r=\".6\"/></svg></span><span>Feed</span></button><button><span><svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" aria-hidden=\"true\"><path d=\"M9 3h6l.6 3 2.7 1.6L21 7l3 5-2 2 0 3-5 3-2.6-1.3H10L7 20l-5-3v-3L0 12l3-5 2.7.6L8.4 6z\" transform=\"translate(1 1) scale(.91)\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/></svg></span><span>Settings</span></button></nav>",
+      "css": ".ds-tabs-ios{display:flex;background:#fff;border-top:1px solid #DCD8EB;padding:8px 0}.ds-tabs-ios button{flex:1;min-height:56px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:0;border:0;background:transparent;color:#686178;font:400 12px/17px system-ui;cursor:pointer}.ds-tabs-ios button>span:first-child{display:flex;align-items:center;justify-content:center;width:64px;height:30px;border-radius:15px}.ds-tabs-ios button[aria-current]{color:#6442C5;font-weight:600}.ds-tabs-ios button:focus-visible{outline:2px solid #6442C5;outline-offset:-2px}@media(prefers-color-scheme:dark){.ds-tabs-ios{background:#302A40;border-color:#463D57}.ds-tabs-ios button{color:#B7AEC8}.ds-tabs-ios button[aria-current]{color:#C4ACFF}}"
+    },
+    {
+      "name": "Android Tab Bar",
+      "kind": "nav",
+      "refersTo": "tab-bar",
+      "description": "Selection includes the violet capsule. SVG preview icons approximate native Material Symbols.",
+      "html": "<nav class=\"ds-tabs-android\" aria-label=\"Adder\"><button aria-current=\"page\"><span><svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" aria-hidden=\"true\"><path d=\"M8 6h13M8 12h13M8 18h13\"/><circle cx=\"3\" cy=\"6\" r=\".6\"/><circle cx=\"3\" cy=\"12\" r=\".6\"/><circle cx=\"3\" cy=\"18\" r=\".6\"/></svg></span><span>Feed</span></button><button><span><svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" aria-hidden=\"true\"><path d=\"M9 3h6l.6 3 2.7 1.6L21 7l3 5-2 2 0 3-5 3-2.6-1.3H10L7 20l-5-3v-3L0 12l3-5 2.7.6L8.4 6z\" transform=\"translate(1 1) scale(.91)\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/></svg></span><span>Settings</span></button></nav>",
+      "css": ".ds-tabs-android{display:flex;background:#fff;border-top:1px solid #DCD8EB;padding:8px 0}.ds-tabs-android button{flex:1;min-height:56px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:0;border:0;background:transparent;color:#686178;font:400 12px/17px system-ui;cursor:pointer}.ds-tabs-android button>span:first-child{display:flex;align-items:center;justify-content:center;width:64px;height:30px;border-radius:15px}.ds-tabs-android button[aria-current]{color:#6442C5;font-weight:600}.ds-tabs-android button[aria-current]>span:first-child{background:#E7DFFB}.ds-tabs-android button:focus-visible{outline:2px solid #6442C5;outline-offset:-2px}@media(prefers-color-scheme:dark){.ds-tabs-android{background:#302A40;border-color:#463D57}.ds-tabs-android button{color:#B7AEC8}.ds-tabs-android button[aria-current]{color:#C4ACFF}.ds-tabs-android button[aria-current]>span:first-child{background:#3D2E59}}"
+    },
+    {
+      "name": "Scanner Status",
+      "kind": "card",
+      "refersTo": "scanner-status",
+      "description": "Theme-aware status card within the camera task. The camera preview and native permission flow are outside this panel sample.",
+      "html": "<div class=\"ds-scanner\"><h3>Point at the code</h3><p>Your adder instance shows a QR code with its endpoint. Line it up in the frame.</p></div>",
+      "css": ".ds-scanner{display:flex;flex-direction:column;gap:12px;padding:22px;border-radius:16px;background:#fff;color:#252137;font-family:system-ui}.ds-scanner h3{margin:0;font-size:22px;font-weight:700;letter-spacing:-.3px}.ds-scanner p{margin:0;color:#686178;font-size:17px;line-height:25px}@media(prefers-color-scheme:dark){.ds-scanner{background:#302A40;color:#F1EDF9}.ds-scanner p{color:#B7AEC8}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Observation Log",
+    "overview": "Adder uses cool lavender surfaces, violet actions, and amber event markers to make incoming chain events easy to read on a phone. The original snake supplies identity at the feed header and Settings footer. Chronology, compact native typography, and inspectable records provide the visual character.\n\nThe user requested an identity distinct from Ordo. Warm paper, cream and charcoal compositions, the stacked-line mark, oversized counts, and editorial presentation are confirmed anti-references. The implementation follows a code-led direction; a visual comp was never approved. Restrained mascot placement is an implementation assumption because the optional prominence question received no answer.",
+    "keyCharacteristics": [
+      "Cool tonal surfaces and restrained violet actions.",
+      "Amber chronology markers with a visible Latest label.",
+      "Original snake artwork at brand touchpoints.",
+      "Native text, platform symbols, safe areas, and scalable content.",
+      "Complete event data available through inline disclosure."
+    ],
+    "rules": [
+      {
+        "name": "The Action and Arrival Rule",
+        "body": "Use violet for actions and amber for the latest received event; retain the accompanying text label.",
+        "section": "colors"
+      },
+      {
+        "name": "The Native Reading Rule",
+        "body": "Preserve native font scaling, allow prose and data to wrap, and keep session counts at metadata scale.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tonal Depth Rule",
+        "body": "Distinguish surfaces through palette roles and fine rules; preserve the flat resting state.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use the light and dark palette roles together when adding a surface.",
+      "Do keep violet actions and amber latest-event markers semantically distinct.",
+      "Do use the original snake at brand touchpoints and platform symbols for controls.",
+      "Do preserve native text scaling, wrapping, safe areas, and the shared Reduce Motion behavior.",
+      "Do expose complete event payloads through readable, selectable values.",
+      "Do keep counts and timestamps subordinate to event content."
+    ],
+    "donts": [
+      "Don't reintroduce Ordo's cream/charcoal composition, stacked-line mark, or oversized metric presentation.",
+      "Don't use an Android selection capsule on the iOS tab bar.",
+      "Don't label a linked endpoint healthy or live without a measured health signal.",
+      "Don't treat simulator fixtures or JavaScript export as proof of physical pairing, push delivery, or Android native appearance.",
+      ""
+    ]
+  }
+}
