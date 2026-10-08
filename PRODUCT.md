@@ -28,7 +28,7 @@ Expo / React Native on iOS and Android. Feed and Settings are the two top-level 
 
 ## Brand Commitments
 
-The name is Adder. The existing snake artwork is in `assets/icon/adder-icon.png`. The user explicitly requested a distinct identity from Ordo: the previous cream/charcoal palette, stacked-line mark, oversized counts, and editorial presentation are anti-references. The implementation uses the mascot sparingly at brand touchpoints. The optional prominence question received no answer.
+The name is Adder, with an identity distinct from Ordo. The existing app icon remains `assets/icon/adder-icon.png`. The user requested a clean, rounded enterprise mobile interface, rejected pastels and divider-heavy presentation, and selected brown and beige with strong contrast. The current brown, tan, and cream palette draws from the existing Adder icon. Working screens use Adder text and platform symbols; mascot illustrations are absent. Rounded cards and controls remain confirmed visual commitments. The user explicitly requested floating glass navigation; the implemented pill uses filled selected tabs on both platforms, a warm blur fallback, and opaque backing for Reduce Transparency.
 
 ## Evidence on Hand
 

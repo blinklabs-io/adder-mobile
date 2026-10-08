@@ -24,7 +24,7 @@
       "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon/adder-icon.png",
-        "backgroundColor": "#F3F2FA"
+        "backgroundColor": "#F4EFE7"
       },
       "permissions": [
         "android.permission.POST_NOTIFICATIONS"
@@ -61,7 +61,7 @@
         {
           "image": "./assets/icon/adder-icon.png",
           "resizeMode": "contain",
-          "backgroundColor": "#F3F2FA",
+          "backgroundColor": "#F4EFE7",
           "imageWidth": 160
         }
       ]

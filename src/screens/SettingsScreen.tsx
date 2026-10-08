@@ -4,12 +4,9 @@ import * as Clipboard from "expo-clipboard";
 import app from "../../app.json";
 import {
   Body,
-  Brand,
-  Button,
   Display,
   Icon,
   Mono,
-  Rule,
   SectionHeader,
 } from "../components/ui";
 import { AuthorizationStatus } from "../services/notifications";
@@ -21,7 +18,7 @@ const PERMISSION_LABEL: Record<number, string> = {
   [AuthorizationStatus.DENIED]: "Off",
   [AuthorizationStatus.NOT_DETERMINED]: "Not asked",
 };
-export default function SettingsScreen({ onScan }: { onScan: () => void }) {
+export default function SettingsScreen({ onScan, bottomClearance }: { onScan: () => void; bottomClearance: number }) {
   const t = useTheme();
   const { endpoint, token, permission, unlink } = useApp();
   const [copied, setCopied] = useState(false);
@@ -34,7 +31,7 @@ export default function SettingsScreen({ onScan }: { onScan: () => void }) {
   return (
     <ScrollView
       style={{ flex: 1, backgroundColor: t.paper }}
-      contentContainerStyle={{ paddingBottom: space.xl }}
+      contentContainerStyle={{ paddingBottom: bottomClearance }}
     >
       <Display
         size={28}
@@ -48,14 +45,18 @@ export default function SettingsScreen({ onScan }: { onScan: () => void }) {
           marginHorizontal: space.l,
           backgroundColor: t.card,
           borderRadius: radii.card,
-          padding: 18,
-          gap: 16,
+          overflow: "hidden",
         }}
       >
         <View
-          style={{ flexDirection: "row", alignItems: "center", gap: space.m }}
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            gap: space.m,
+            padding: 18,
+          }}
         >
-          <Icon name="link" color={t.accent} />
+          <Icon name="link" size={20} color={t.inkSecondary} />
           <View style={{ flex: 1, gap: 5 }}>
             <Body size={13} color={t.inkSecondary}>
               Endpoint
@@ -65,30 +66,40 @@ export default function SettingsScreen({ onScan }: { onScan: () => void }) {
             </Mono>
           </View>
         </View>
-        <Button
-          title={endpoint ? "Scan a new QR code" : "Scan QR code"}
-          tone="secondary"
-          icon="scan"
-          onPress={onScan}
-        />
-      </View>
-      {endpoint ? (
         <Pressable
           accessibilityRole="button"
-          onPress={unlink}
+          onPress={onScan}
           style={({ pressed }) => ({
-            minHeight: 48,
-            marginHorizontal: space.l,
+            minHeight: 56,
             paddingHorizontal: 18,
             paddingVertical: 14,
+            flexDirection: "row",
+            alignItems: "center",
+            gap: space.m,
             opacity: pressed ? 0.65 : 1,
           })}
         >
-          <Body color={t.alarm} style={{ fontWeight: "600" }}>
-            Unlink this phone
+          <Icon name="scan" size={20} color={t.accent} />
+          <Body color={t.accent} style={{ flex: 1 }}>
+            {endpoint ? "Scan a new QR code" : "Scan QR code"}
           </Body>
+          <Icon name="chevron" size={16} color={t.inkSecondary} />
         </Pressable>
-      ) : null}
+        {endpoint ? (
+          <Pressable
+            accessibilityRole="button"
+            onPress={unlink}
+            style={({ pressed }) => ({
+              minHeight: 48,
+              paddingHorizontal: 18,
+              paddingVertical: 14,
+              opacity: pressed ? 0.65 : 1,
+            })}
+          >
+            <Body color={t.alarm}>Unlink this phone</Body>
+          </Pressable>
+        ) : null}
+      </View>
       <SectionHeader label="This phone" />
       <View
         style={{
@@ -114,7 +125,6 @@ export default function SettingsScreen({ onScan }: { onScan: () => void }) {
               : (PERMISSION_LABEL[permission] ?? "Unknown")}
           </Body>
         </View>
-        <Rule inset={18} />
         <View style={{ padding: 18, gap: space.s }}>
           <Body>Push token</Body>
           <View
@@ -155,7 +165,6 @@ export default function SettingsScreen({ onScan }: { onScan: () => void }) {
           gap: 10,
         }}
       >
-        <Brand size={30} />
         <View>
           <Body size={14} style={{ fontWeight: "600" }}>
             Adder

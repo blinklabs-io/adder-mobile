@@ -103,7 +103,7 @@ export default function ScanScreen({ onClose }: { onClose: () => void }) {
         barcodeScannerSettings={{ barcodeTypes: ["qr"] }}
         onBarcodeScanned={status.kind === "idle" ? onScanned : undefined}
       />
-      <SafeAreaView style={{ flex: 1, backgroundColor: "rgba(20,18,32,0.28)" }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: "rgba(25,19,15,0.28)" }}>
         <View
           style={{
             flexDirection: "row",
@@ -124,7 +124,7 @@ export default function ScanScreen({ onClose }: { onClose: () => void }) {
               width: 48,
               height: 48,
               borderRadius: 24,
-              backgroundColor: pressed ? "#514564" : "#30283E",
+              backgroundColor: pressed ? "#544032" : "#35271E",
               alignItems: "center",
               justifyContent: "center",
             })}
@@ -148,7 +148,7 @@ export default function ScanScreen({ onClose }: { onClose: () => void }) {
                 <Corner
                   key={corner}
                   at={corner}
-                  color={status.kind === "error" ? "#FF9EB0" : "#C4ACFF"}
+                  color={status.kind === "error" ? "#E4A091" : t.cameraInk}
                 />
               ))}
             </View>
@@ -180,7 +180,7 @@ export default function ScanScreen({ onClose }: { onClose: () => void }) {
               {status.kind === "linking" ? (
                 <ActivityIndicator color={t.accent} />
               ) : null}
-              <Display size={22} style={{ flex: 1 }}>
+              <Display size={20} style={{ flex: 1 }}>
                 {status.kind === "error"
                   ? "Couldn't link."
                   : status.kind === "linking"

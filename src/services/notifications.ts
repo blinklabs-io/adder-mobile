@@ -3,6 +3,7 @@ import {
   getMessaging,
   getToken,
   onMessage,
+  onTokenRefresh,
   requestPermission,
 } from '@react-native-firebase/messaging';
 import type { RemoteMessage } from '@react-native-firebase/messaging';
@@ -22,4 +23,8 @@ export function onForegroundMessage(cb: (m: RemoteMessage) => void) {
 
 export function getFcmToken() {
   return getToken(messaging);
+}
+
+export function onFcmTokenRefresh(cb: (token: string) => void) {
+  return onTokenRefresh(messaging, cb);
 }

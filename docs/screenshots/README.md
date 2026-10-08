@@ -1,5 +1,7 @@
 # Screenshots
 
+These files archive the October 5 design. The current October 6 rounded UI captures and preview are in [../ui-options/](../ui-options/README.md).
+
 Captured on 2026-10-05 from the observation-log redesign committed alongside this index, running in Expo Go 57.0.9 on an iPhone 17 Pro simulator (iOS 26.3, 1206 × 2622).
 
 These are native React Native UI captures with local fixtures. The linked endpoint (`adder.example.com`), events, notification permission, and push token are sample data. Scan states use a simulated camera permission and initial scan status; the simulator has no live camera feed. These captures establish screen appearance only. Firebase registration, push delivery, and physical-camera QR scanning require a configured native development build and device verification. Android native appearance remains unverified.

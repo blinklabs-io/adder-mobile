@@ -1,73 +1,94 @@
 ---
-name: Adder
-description: A native observation log for incoming chain events.
+name: "Adder"
+description: "A clean, rounded mobile inbox for incoming chain events."
 colors:
-  paper-light: "#F3F2FA"
-  panel-light: "#E9E5F7"
+  paper-light: "#F4EFE7"
+  panel-light: "#E7DCCB"
   card-light: "#FFFFFF"
-  rule-light: "#DCD8EB"
-  ink-light: "#252137"
-  ink-secondary-light: "#686178"
-  accent-light: "#6442C5"
-  accent-soft-light: "#E7DFFB"
-  on-accent-light: "#FFFFFF"
-  signal-light: "#826000"
-  signal-soft-light: "#F5E8BE"
-  alarm-light: "#B6314B"
-  alarm-soft-light: "#FCE6EA"
-  paper-dark: "#191623"
-  panel-dark: "#252033"
-  card-dark: "#302A40"
-  rule-dark: "#463D57"
-  ink-dark: "#F1EDF9"
-  ink-secondary-dark: "#B7AEC8"
-  accent-dark: "#C4ACFF"
-  accent-soft-dark: "#3D2E59"
-  on-accent-dark: "#241639"
-  signal-dark: "#E8C66A"
-  signal-soft-dark: "#44391E"
-  alarm-dark: "#FF9EB0"
-  alarm-soft-dark: "#4B2836"
-  camera: "#141220"
-  camera-ink: "#FFFFFF"
-  camera-muted: "#D7D1EA"
+  rule-light: "#D6C8B7"
+  ink-light: "#2F241C"
+  ink-secondary-light: "#6D5B4C"
+  accent-light: "#713F25"
+  accent-soft-light: "#EAD8C0"
+  on-accent-light: "#FFF9EE"
+  signal-light: "#755026"
+  signal-soft-light: "#EFE1CD"
+  alarm-light: "#A13C2F"
+  alarm-soft-light: "#F4E3DD"
+  camera: "#19130F"
+  camera-ink: "#FFF9EE"
+  camera-muted: "#DED1C2"
+  paper-dark: "#1C1612"
+  panel-dark: "#382B21"
+  card-dark: "#2B221B"
+  rule-dark: "#514032"
+  ink-dark: "#F5EDE1"
+  ink-secondary-dark: "#C7B5A2"
+  accent-dark: "#D0A16D"
+  accent-soft-dark: "#453324"
+  on-accent-dark: "#271A10"
+  signal-dark: "#E1BC84"
+  signal-soft-dark: "#453526"
+  alarm-dark: "#E4A091"
+  alarm-soft-dark: "#492820"
+  camera-overlay: "rgba(25,19,15,0.28)"
+  camera-close: "#35271E"
+  camera-close-pressed: "#544032"
+  nav-glass-light: "rgba(244,239,231,0.3)"
+  nav-glass-dark: "rgba(43,34,27,0.3)"
+  nav-blur-overlay-light: "rgba(244,239,231,0.72)"
+  nav-blur-overlay-dark: "rgba(43,34,27,0.72)"
 typography:
   headline:
-    fontFamily: system-ui
+    fontFamily: "system-ui"
+    fontSize: "28px"
+    fontWeight: 700
+    letterSpacing: "-0.3px"
+  display:
+    fontFamily: "system-ui"
     fontSize: "24px"
     fontWeight: 700
     letterSpacing: "-0.3px"
+  section:
+    fontFamily: "system-ui"
+    fontSize: "20px"
+    fontWeight: 600
+    letterSpacing: "-0.3px"
   title:
-    fontFamily: system-ui
+    fontFamily: "system-ui"
     fontSize: "18px"
-    fontWeight: 700
+    fontWeight: 600
     letterSpacing: "-0.3px"
   body:
-    fontFamily: system-ui
+    fontFamily: "system-ui"
     fontSize: "17px"
     lineHeight: "25px"
   label:
-    fontFamily: system-ui
+    fontFamily: "system-ui"
     fontSize: "13px"
     lineHeight: "19px"
   metadata:
-    fontFamily: system-ui
+    fontFamily: "system-ui"
     fontSize: "12px"
     lineHeight: "17px"
   button:
-    fontFamily: system-ui
+    fontFamily: "system-ui"
     fontSize: "16px"
     fontWeight: 700
     letterSpacing: "-0.3px"
   mono-ios:
-    fontFamily: Menlo
+    fontFamily: "Menlo"
     fontSize: "13px"
   mono-android:
-    fontFamily: monospace
+    fontFamily: "monospace"
     fontSize: "13px"
 rounded:
-  card: "16px"
-  control: "12px"
+  card: "22px"
+  control: "18px"
+  tab-capsule: "30px"
+  badge: "12px"
+  icon-control: "24px"
+  navigation: "36px"
 spacing:
   xs: "4px"
   s: "8px"
@@ -88,13 +109,13 @@ components:
     rounded: "{rounded.control}"
     padding: "14px 20px"
   button-secondary:
-    backgroundColor: "{colors.accent-soft-light}"
+    backgroundColor: "{colors.panel-light}"
     textColor: "{colors.accent-light}"
     typography: "{typography.button}"
     rounded: "{rounded.control}"
     padding: "14px 20px"
   button-secondary-dark:
-    backgroundColor: "{colors.accent-soft-dark}"
+    backgroundColor: "{colors.panel-dark}"
     textColor: "{colors.accent-dark}"
     typography: "{typography.button}"
     rounded: "{rounded.control}"
@@ -112,170 +133,178 @@ components:
     rounded: "{rounded.control}"
     padding: "14px 20px"
   linked-instance:
-    backgroundColor: "{colors.panel-light}"
-    textColor: "{colors.ink-light}"
+    backgroundColor: "{colors.accent-light}"
+    textColor: "{colors.on-accent-light}"
     rounded: "{rounded.card}"
-    padding: "18px"
+    padding: "20px"
+  linked-instance-dark:
+    backgroundColor: "{colors.accent-dark}"
+    textColor: "{colors.on-accent-dark}"
+    rounded: "{rounded.card}"
+    padding: "20px"
   event-record:
     backgroundColor: "{colors.card-light}"
     textColor: "{colors.ink-light}"
     rounded: "{rounded.card}"
-    padding: "16px"
+    padding: "18px 20px"
+  event-record-dark:
+    backgroundColor: "{colors.card-dark}"
+    textColor: "{colors.ink-dark}"
+    rounded: "{rounded.card}"
+    padding: "18px 20px"
   settings-group:
     backgroundColor: "{colors.card-light}"
     textColor: "{colors.ink-light}"
     rounded: "{rounded.card}"
     padding: "18px"
-  tab-bar:
-    backgroundColor: "{colors.card-light}"
-    typography: "{typography.metadata}"
+  settings-group-dark:
+    backgroundColor: "{colors.card-dark}"
+    textColor: "{colors.ink-dark}"
+    rounded: "{rounded.card}"
+    padding: "18px"
   scanner-status:
     backgroundColor: "{colors.card-light}"
     textColor: "{colors.ink-light}"
     rounded: "{rounded.card}"
     padding: "22px"
+  scanner-status-dark:
+    backgroundColor: "{colors.card-dark}"
+    textColor: "{colors.ink-dark}"
+    rounded: "{rounded.card}"
+    padding: "22px"
+  latest-badge:
+    backgroundColor: "{colors.signal-soft-light}"
+    textColor: "{colors.signal-light}"
+    typography: "{typography.metadata}"
+    rounded: "{rounded.badge}"
+    padding: "3px 10px"
+  tab-bar:
+    backgroundColor: "{colors.nav-glass-light}"
+    typography: "{typography.metadata}"
+    rounded: "{rounded.navigation}"
+    padding: "6px"
+    width: "100%"
+  tab-capsule:
+    backgroundColor: "{colors.accent-light}"
+    textColor: "{colors.on-accent-light}"
+    typography: "{typography.metadata}"
+    rounded: "{rounded.tab-capsule}"
+    padding: "7px 12px"
+  scan-control:
+    backgroundColor: "{colors.panel-light}"
+    textColor: "{colors.accent-light}"
+    rounded: "{rounded.icon-control}"
+    size: "48px"
+  tab-bar-dark:
+    backgroundColor: "{colors.nav-glass-dark}"
+    typography: "{typography.metadata}"
+    rounded: "{rounded.navigation}"
+    padding: "6px"
+    width: "100%"
+  tab-capsule-dark:
+    backgroundColor: "{colors.accent-dark}"
+    textColor: "{colors.on-accent-dark}"
+    typography: "{typography.metadata}"
+    rounded: "{rounded.tab-capsule}"
+    padding: "7px 12px"
 ---
 
 # Design System: Adder
 
 ## Overview
 
-**Creative North Star: "The Observation Log"**
+**Creative North Star: "The Rounded Inbox"**
 
-Adder uses cool lavender surfaces, violet actions, and amber event markers to make incoming chain events easy to read on a phone. The original snake supplies identity at the feed header and Settings footer. Chronology, compact native typography, and inspectable records provide the visual character.
+Adder uses cream ground, white cards, deep brown text, and contrasting brown actions to make pairing and incoming events easy to read on a phone. The brown, tan, and cream palette comes from the existing Adder icon. Rounded surfaces and generous spacing establish a calm, mature mobile interface. Floating glass navigation adds the depth explicitly requested by the user. The name and app icon preserve Adder identity; working screens use text and platform symbols.
 
-The user requested an identity distinct from Ordo. Warm paper, cream and charcoal compositions, the stacked-line mark, oversized counts, and editorial presentation are confirmed anti-references. The implementation follows a code-led direction; a visual comp was never approved. Restrained mascot placement is an implementation assumption because the optional prominence question received no answer.
-
-This document records `src/theme.ts`, `src/components/ui.tsx`, `src/components/TabBar.tsx`, `src/screens/*.tsx`, and `App.tsx`. Frontmatter `px` values serialize React Native logical units for portable tooling; native text still scales with system settings. Light/dark suffixes map to the matching palette in `src/theme.ts`; camera tokens are shared by both appearances. Local measurements appear with their owning component below.
+The user retained the clean, rounded direction, explicitly rejected divider-heavy presentation and pastels, and selected brown and beige with stronger contrast for an enterprise, App Store quality interface. This document records the implemented system in `src/theme.ts`, shared components, and the three screens. Frontmatter `px` values serialize React Native logical units; native text scales with system settings. Light/dark suffixes map to theme appearances and camera tokens are shared.
 
 **Key Characteristics:**
 
-- Cool tonal surfaces and restrained violet actions.
-- Amber chronology markers with a visible Latest label.
-- Original snake artwork at brand touchpoints.
-- Native text, platform symbols, safe areas, and scalable content.
-- Complete event data available through inline disclosure.
-
-Verification evidence covers iOS simulator fixture UI. Android JavaScript/Hermes export passed; Android native appearance still requires device or emulator verification. Firebase delivery and physical QR pairing still require end-to-end testing. Fixture captures establish appearance and interaction only.
+- Cream ground, white cards, and contrasting brown actions.
+- Rounded cards and controls with spacing between groups.
+- Native typography, platform symbols, safe areas, and scalable content.
+- Inline disclosure for complete selectable event data.
+- A labeled amber Latest badge and floating glass navigation with filled selected tabs on both platforms.
 
 ## Colors
 
-The palette moves from pale lavender in light appearance to deep purple surfaces in dark appearance; violet, amber, and rose retain separate jobs.
+Light appearance uses cream ground, white cards, and beige controls; dark appearance uses deep brown ground and warmer brown surfaces. Brown, amber, and brick red carry distinct functions.
 
 ### Primary
 
-- **Action violet** (`accent-*`) marks primary buttons, active destinations, link/scan symbols, and event disclosure affordances.
-- **Violet wash** (`accent-soft-*`) backs secondary controls and the selected Android tab symbol.
-- **Action contrast** (`on-accent-*`) supplies foreground contrast inside filled primary buttons.
+- **Adder brown / warm tan** (`accent-*`) identifies actions, selected tabs, and link/scan symbols, and fills the linked endpoint panel.
+- **Tan wash** (`accent-soft-*`) fills functional icon backplates.
+- **Action contrast** (`on-accent-*`) supplies foreground contrast on filled primary buttons and the linked endpoint panel.
 
 ### Secondary
 
-- **Received amber** (`signal-*`) identifies the newest timeline node and its Latest label. `signal-soft-*` exists in the palette and currently has no rendered consumer.
+- **Arrival amber** (`signal-*`) and **amber wash** (`signal-soft-*`) identify the first session record with a Latest badge.
 
 ### Tertiary
 
-- **Error rose** (`alarm-*`) identifies unlink text and scanner failure framing. The shared Button component also provides an alarm variant using `alarm-soft-*`; current screens use primary and secondary Button variants.
+- **Error brick / warm coral** (`alarm-*`) identifies unlinking and scanner errors. The shared alarm button uses `alarm-soft-*`; current screens use primary and secondary buttons.
 
 ### Neutral
 
-- **Lavender ground** (`paper-*`) fills the screen; **instance panel** (`panel-*`) identifies the linked endpoint and pairing illustration.
-- **Record surface** (`card-*`) groups event data, settings, scanner status, and bottom navigation.
-- **Fine rule** (`rule-*`) separates settings rows, traces chronology, and defines the tab-bar edge.
+- **Cream ground / deep brown ground** (`paper-*`) fills screens. Warm translucent navigation tints and blur overlays (`nav-glass-*`, `nav-blur-overlay-*`) keep the floating bar within the same palette.
+- **Beige / warm brown panel** (`panel-*`) fills secondary controls; **white / brown card** (`card-*`) groups records and settings.
 - **Primary ink** (`ink-*`) carries headings and data; **secondary ink** (`ink-secondary-*`) carries supporting prose and metadata.
-- **Camera ground**, **camera ink**, and **camera muted** keep the scanner header and framing instruction legible over its dark camera treatment.
-
-**The Action and Arrival Rule.** Use violet for actions and amber for the latest received event; retain the accompanying text label.
+- **Rule** (`rule-*`) remains a theme token with no current screen consumer. It does not authorize adding dividers.
+- **Camera ground, ink, muted, overlay, and close-control tones** keep scanner controls readable over the preview. The scanner error corners use `alarm-dark` in both appearances.
 
 ## Typography
 
-**Headline and body font:** native system text. The React Native Text components omit `fontFamily`; the portable frontmatter names this `system-ui`. This is the native mobile type system, with no added display font.
+Native system text supplies headings and body copy. React Native Text omits `fontFamily`; portable tokens name the family `system-ui`. Technical values use Menlo on iOS and monospace on Android.
 
-**Data font:** Menlo on iOS and monospace on Android. Endpoint and payload values use selectable native Text where implemented.
+The header role is used by Adder and Settings. The display role is the shared Display default and unlinked prompt. Section headings use the section role; event titles use the title role. The scanner heading/status uses Display at size 20 and weight 700; empty-state titles use size 22. Body computes line height as `Math.round(size * 1.45)`. Supporting pairing copy uses Body at size 15; the linked host uses Mono at size 14. Label text includes disclosure and endpoint captions; metadata includes timestamps, counts, Latest, tab names, payload keys, and version. Latest and disclosure use weight 600; selected tab labels use 600 and inactive labels 400. Mono inherits native line height.
 
-The `Display` component supplies compact bold headings with slightly tightened spacing; its default is the `headline` token. It also accepts medium weight (600). `Body` computes line height as `Math.round(size * 1.45)`. `Mono` inherits native line height and secondary ink unless its caller overrides the color.
-
-### Hierarchy
-
-- **Headlines:** local sizes are 30 for the unlinked prompt, 28 for Settings, 25 for the Adder name, 23 for empty states, 22 for scanner status, and 20 for the scanner heading.
-- **Section titles:** 19; **event and pairing titles:** the `title` token.
-- **Body:** the `body` token for event prose, pairing explanations, permission messages, scanner explanations, and settings rows.
-- **Labels:** `label` for endpoint captions, session count, scanner instruction, and event disclosure; `metadata` for relative time, Latest, tab names, payload keys, and version. Latest, active tabs, and disclosure text use weight 600.
-- **Data:** the platform mono token; the linked host uses a local size of 14. The Settings footer name also uses size 14 with weight 600.
-
-**The Native Reading Rule.** Preserve native font scaling, allow prose and data to wrap, and keep session counts at metadata scale.
+**The Native Reading Rule.** Preserve native text scaling, allow prose and data to wrap, and keep counts and timestamps subordinate to event content.
 
 ## Layout
 
-The app uses one fluid column. Screen gutters use `spacing.l`; scrolling content ends with `spacing.xl`. Feed uses FlatList and Settings uses ScrollView. The root respects the top safe area; bottom navigation adds `max(bottomInset, 8)` below its content.
+One fluid column uses `spacing.l` screen gutters. Feed uses FlatList; Settings uses ScrollView; scrolling content reserves measured navigation height plus `max(bottom safe inset, 12)` plus 24 as bottom clearance. Root and scanner respect safe areas. Section headings have a local top margin of 28 and bottom margin of `spacing.m`; event cards are separated by `spacing.m`. Settings rows use local padding 18 and wrap state labels. Unlinked content begins with a local top inset of 40. Endpoint and payload values can wrap without truncation; the Settings token display is intentionally shortened and Copy transfers the full token.
 
-The shared spacing scale supplies the recurring rhythm. Local values remain component-specific: the feed brand row has gap 10 and vertical padding 12; section headers use top margin 28; linked and settings groups use inset 18; event records use inset 16; scanner status uses inset 22; the unlinked illustration panel uses inset 24. These values are observed implementation details rather than additional shared spacing tokens.
-
-Headers and settings rows can wrap. Buttons allow their labels to shrink and wrap. The unlinked headline has a local maximum width of 300. Interactive controls use minimum touch targets: 52 high for shared buttons, 56 high for tabs, and 48 for copy, unlink, and scanner close controls.
-
-The scanner Modal owns a SafeAreaProvider. Its header stays within the safe area and its finder/status content scrolls at larger text sizes. Finder width and height are `min(248, windowWidth - 96)`; the finder region reserves at least `finder + 80` height. There are no width breakpoints or separate tablet composition in the current source.
+Buttons have minimum height 52; scan and dismiss controls are 48 square; tabs have minimum height 60. Settings scan rows have minimum height 56; unlink and Copy targets have minimum height/width 48 where implemented. Floating navigation sits at `max(bottom safe inset, 12)`, uses 20-point side gutters, and caps its width at 360. Its measured height updates Feed and Settings bottom clearance so large text and final rows can scroll above the bar. The scanner finder is `min(248, viewport width - 96)`, with a scrollable status area for large text.
 
 ## Elevation & Depth
 
-Surfaces use tonal separation, one-unit rules, and containment. The source defines no shadows or elevation. Cards sit within the cool screen ground; the linked panel has its own tint. The scanner is the full-screen task layer, presented with a native slide when motion is allowed.
+Cards remain flat at rest. Surface tone, shape, and spacing establish content groups. The floating navigation alone uses glass and a warm brown shadow: color `on-accent-dark`, offset (0, 6), opacity 0.16 light / 0.3 dark, radius 18, and Android elevation 8. Press feedback uses opacity, with light haptics on shared buttons and selection haptics on changed tabs. Scanner dismissal uses a brighter background when pressed. Payload disclosure fades from opacity 0.4 to 1 over 180ms when Reduce Motion is off.
 
-**The Tonal Depth Rule.** Distinguish surfaces through palette roles and fine rules; preserve the flat resting state.
-
-Event disclosure fades from opacity 0.4 to 1 over 180 ms. Modal presentation uses `slide` or `none`. Both read the shared `useReducedMotion` hook, which begins with reduced motion enabled while the system setting loads, then subscribes to setting changes. Shared buttons use light impact haptics, tab changes use selection haptics, and scanner outcomes use success/error notification haptics.
+**The Space Between Rule.** Separate cards and settings groups with spacing and tonal surfaces. Keep screen dividers, timeline rails, and decorative outlines absent; camera corner guides remain functional.
 
 ## Shapes
 
-Shared surfaces use `rounded.card`; shared controls use `rounded.control`. Both are modest curves sized for native controls. Event and phone-setting groups clip their contents. Full-width separators remain fine, straight lines.
+Cards and grouped surfaces use `rounded.card`; filled buttons use `rounded.control`. These values reflect the user's rounded direction and take precedence over generic native radius defaults. Latest uses `rounded.badge`. The floating navigation uses `rounded.navigation`; selected tabs fill their flexible segment with `rounded.tab-capsule`; round scan and dismiss controls use `rounded.icon-control`. Empty/setup icon backplates are circular (56/64 square). Camera framing uses functional 32-square corners, stroke width 3, and corner radius 12.
 
-Local geometry includes the timeline's 11-unit circular node with radius 6 and stroke 2; the Android selected-tab capsule at 64 by 30 with radius 15; the scanner close circle at 48 by 48 with radius 24; and 32-by-32 finder corners with stroke 3 and radius 12. The unlinked phone illustration is 64 by 76, stroke 2, radius 12, with a small 18-by-3 home indicator.
+**The Shared Shape Rule.** Use the card and control radii for their respective surfaces and the selected tab capsule on both iOS and Android.
 
 ## Components
 
-### Buttons
+- **Buttons:** primary uses accent/on-accent; secondary uses panel/accent; the available alarm variant uses alarm-soft/alarm. Shared padding and shapes follow frontmatter. Pressed opacity is 0.75 and disabled opacity 0.45; loading displays a spinner and prevents action.
+- **Linked endpoint:** filled accent panel with on-accent link symbol, caption, and selectable mono host. It describes pairing, with no connection-health claim.
+- **Event record:** soft card, medium title and timestamp on a wrapping row, labeled Latest badge for the first record, optional body, and accent disclosure. Expanded values remain inside the card. Records without payload entries have no disclosure action.
+- **Settings group:** soft card with spaced rows, endpoint data, scan action, unlink text, permission state, and token Copy. Groups have no inset dividers.
+- **Navigation:** Feed and Settings sit in a floating glass pill with inner padding/gap 6. Each tab has minimum height 60, padding 7 vertical / 12 horizontal, icon size 22, and native-scaling Body label size 12. Selection fills the whole segment with accent/on-accent and weight 600; inactive symbols/labels use ink and weight 400. Pressed opacity is 0.7; changing tabs gives selection haptics. Supported iOS APIs render regular GlassView with warm tint. Otherwise BlurView intensity 75 samples the screen through BlurTargetView, using `dimezisBlurViewSdk31Plus` on Android and a warm 0.72 overlay. Reduce Transparency switches the backing to opaque card. The `expo-blur` and `expo-glass-effect` dependencies require a rebuilt native app.
+- **Scanner status:** theme-aware rounded card for aiming, linking, and recovery; the dark camera preview retains corner guides and a round close control. Permission screens use the shared empty-state layout and buttons.
 
-Clear, substantial controls with readable labels. Primary, secondary, and alarm color assignments appear in frontmatter. All shared Button variants have a minimum height of 52, horizontal content gap 10, optional 20-unit symbol, and native loading indicator. Pressed opacity is 0.75; an explicitly disabled button uses 0.45. Loading also disables input and exposes the busy accessibility state. The alarm variant is implemented but currently unused by screens.
-
-### Linked instance and settings groups
-
-The linked endpoint occupies a panel-tinted container with a 26-unit link symbol and selectable host. Settings groups use the record surface, 18-unit insets, and a one-unit divider inset by 18. The endpoint is shown in full; the push token is visually shortened and Copy copies its full value. Copy feedback changes to Copied for 1500 ms. Unlink uses rose text in its own minimum-height row.
-
-### Navigation and symbols
-
-Feed and Settings have equal-width destinations. A card-colored bar, top rule, 22-unit symbol, and 12-unit label provide the structure. Active text and symbol use violet; inactive content uses secondary ink. iOS selection uses color and weight on a transparent symbol container. Android selection adds the violet-wash capsule. Each destination exposes native tab semantics and selected state.
-
-`expo-symbols` supplies SF Symbols on iOS and Material Symbols on Android. The mappings are `list.bullet`/`list`, `gearshape`/`settings`, `qrcode.viewfinder`/`qr_code_scanner`, `xmark`/`close`, `chevron.right`/`chevron_right`, and `link`/`link`. Decorative symbols are hidden from accessibility navigation; their controls carry labels.
-
-### Event timeline
-
-Each record occupies a card beside a narrow chronology rail. The rail gutter is 24 with right margin 10. A one-unit connector runs between nodes and ends before the final record. The newest node is filled amber; earlier nodes use the screen background with secondary-ink strokes. Relative time and Latest appear above the title and body.
-
-Records with payload entries act as disclosure controls. View event data and Hide event data expose state visibly; accessibility receives expanded state and a hint. Disclosure reveals every key/value pair and selectable mono values. The chevron changes orientation. Empty payloads have no disclosure control. Event presses use opacity 0.72. Expanded content keeps 16-unit side/bottom padding and a 12-unit gap between fields.
-
-### Scanner
-
-The camera treatment uses a local `rgba(20,18,32,0.28)` scrim over the shared camera ground. Close uses local normal `#30283E` and pressed `#514564` fills. Finder corners use the dark-palette violet (`#C4ACFF`) while idle and error rose (`#FF9EB0`) after failure, in both appearance modes. These values support the camera context and remain local to the scanner.
-
-The status surface follows the active light/dark palette, with a 22-unit title and standard body. Linking shows a spinner; error shows Try again. Permission states explain camera use and offer Allow camera or Open Settings plus a dismissal action. Permission content scrolls, and the initial permission-loading state also offers Cancel.
-
-### Brand and empty states
-
-Use `assets/icon/adder-icon.png` as supplied. It renders at 34 in the Feed header and 30 beside the Settings version; the Brand component default is 36. Empty states use a 48-unit violet-wash symbol container, compact heading, body, and optional actions. The current source has no text-entry fields or filter chips.
-
-The sidecar's HTML/CSS samples translate these native components for the Impeccable panel. Keyboard focus outlines in those samples are panel affordances; they establish no additional native-app behavior. Its eight-step OKLCH color ramps are synthesized preview aids; the source palette values in frontmatter remain normative.
+The sidecar HTML/CSS tiles are visual samples of native components. Browser focus/hover treatments serve the sample panel; they do not establish a web implementation or substitute for native behavior. The app has no text-input primitive.
 
 ## Do's and Don'ts
 
 ### Do:
 
-- **Do** use the light and dark palette roles together when adding a surface.
-- **Do** keep violet actions and amber latest-event markers semantically distinct.
-- **Do** use the original snake at brand touchpoints and platform symbols for controls.
-- **Do** preserve native text scaling, wrapping, safe areas, and the shared Reduce Motion behavior.
-- **Do** expose complete event payloads through readable, selectable values.
-- **Do** keep counts and timestamps subordinate to event content.
+- Do pair light and dark palette roles when adding a surface.
+- Do separate groups with spacing and soft surface fills.
+- Do use Adder brown/tan for actions, amber for the labeled Latest badge, and brick/coral for errors or unlinking.
+- Do preserve native text scaling, wrapping, safe areas, touch targets, and Reduce Motion.
+- Do expose complete event payloads as readable, selectable values.
+- Do preserve the Adder name and existing app icon.
 
 ### Don't:
 
-- **Don't** reintroduce Ordo's cream/charcoal composition, stacked-line mark, or oversized metric presentation.
-- **Don't** use an Android selection capsule on the iOS tab bar.
-- **Don't** label a linked endpoint healthy or live without a measured health signal.
-- **Don't** treat simulator fixtures or JavaScript export as proof of physical pairing, push delivery, or Android native appearance.
+- Don't add divider lines, timeline rails, decorative outlines, or card shadows; reserve glass and shadow for the floating navigation.
+- Don't place mascot illustrations in Feed, Settings, or scanner screens.
+- Don't remove the selected tab capsule from either platform.
+- Don't label a linked endpoint healthy or live without a measured health signal.
+- Don't treat fixture captures or JavaScript exports as proof of Android native appearance, physical QR pairing, or push delivery.

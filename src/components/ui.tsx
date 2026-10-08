@@ -69,12 +69,6 @@ export function Mono({ size = 13, color, style, ...p }: TP) {
     />
   );
 }
-export function Rule({ inset = 0 }: { inset?: number }) {
-  const t = useTheme();
-  return (
-    <View style={{ height: 1, backgroundColor: t.rule, marginLeft: inset }} />
-  );
-}
 export function SectionHeader({
   label,
   meta,
@@ -95,7 +89,7 @@ export function SectionHeader({
         gap: space.s,
       }}
     >
-      <Display size={19} style={{ flexGrow: 1 }}>
+      <Display size={20} weight="medium" style={{ flexGrow: 1 }}>
         {label}
       </Display>
       {meta ? (
@@ -172,7 +166,7 @@ export function Button({
   style?: ViewStyle;
 }) {
   const t = useTheme();
-  const bg = { primary: t.accent, secondary: t.accentSoft, alarm: t.alarmSoft }[
+  const bg = { primary: t.accent, secondary: t.panel, alarm: t.alarmSoft }[
     tone
   ];
   const fg = { primary: t.onAccent, secondary: t.accent, alarm: t.alarm }[tone];
@@ -234,18 +228,19 @@ export function Empty({
     <View style={{ padding: space.xl, gap: space.m }}>
       <View
         style={{
-          width: 48,
-          height: 48,
-          borderRadius: radii.control,
+          alignSelf: "flex-start",
+          width: 56,
+          height: 56,
+          borderRadius: 28,
           backgroundColor: t.accentSoft,
           alignItems: "center",
           justifyContent: "center",
           marginBottom: space.s,
         }}
       >
-        <Icon name="feed" color={t.accent} />
+        <Icon name="feed" size={24} color={t.accent} />
       </View>
-      <Display size={23}>{title}</Display>
+      <Display size={22}>{title}</Display>
       <Body color={t.inkSecondary}>{message}</Body>
       {children}
     </View>

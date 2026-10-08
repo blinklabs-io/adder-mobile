@@ -12,10 +12,9 @@ export function parseQr(text: string): string | null {
 }
 
 /** POSTs `{fcmToken}` to `url`; server replies 201 on success. */
-export async function sendFcmToken(url: string): Promise<boolean> {
+export async function sendFcmToken(url: string, token?: string): Promise<boolean> {
   try {
-    const fcmToken = await getFcmToken();
-    console.log('FCM token', fcmToken, '->', url);
+    const fcmToken = token ?? await getFcmToken();
     const res = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
