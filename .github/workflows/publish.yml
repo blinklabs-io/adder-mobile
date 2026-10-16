@@ -8,7 +8,7 @@ on:
 
 jobs:
   orchestrate:
-    uses: blinklabs-io/actions/.github/workflows/reuseable-flutter.yml@main
+    uses: blinklabs-io/actions/.github/workflows/reuseable-flutter.yml@d3aa875070b18acdcb31256100558d44c16b512f
     secrets:
       GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
     with:
