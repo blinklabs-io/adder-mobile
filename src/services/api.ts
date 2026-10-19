@@ -1,11 +1,13 @@
 import { getFcmToken } from './notifications';
 
-/** QR payload: `{"apiEndpoint": "https://host/path"}`. Returns the normalized URL or null. */
+/** QR payload: `{"apiEndpoint": "https://host/path"}`. Returns the normalized HTTPS URL or null. */
 export function parseQr(text: string): string | null {
   try {
     const { apiEndpoint } = JSON.parse(text);
     if (typeof apiEndpoint !== 'string' || !apiEndpoint) return null;
-    return /^https?:\/\//.test(apiEndpoint) ? apiEndpoint : `https://${apiEndpoint}`;
+    const url = new URL(/^\w+:\/\//.test(apiEndpoint) ? apiEndpoint : `https://${apiEndpoint}`);
+    if (url.protocol !== 'https:' || url.username || url.password) return null;
+    return url.toString();
   } catch {
     return null;
   }
