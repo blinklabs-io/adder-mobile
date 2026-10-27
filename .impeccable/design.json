@@ -1,0 +1,652 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-06T20:20:39.874778+00:00",
+  "title": "Design System: Adder",
+  "extensions": {
+    "colorMeta": {
+      "paper-light": {
+        "role": "neutral",
+        "displayName": "Paper Light",
+        "tonalRamp": [
+          "oklch(15% 0.0119 79.78)",
+          "oklch(25% 0.0119 79.78)",
+          "oklch(35% 0.0119 79.78)",
+          "oklch(45% 0.0119 79.78)",
+          "oklch(55% 0.0119 79.78)",
+          "oklch(65% 0.0119 79.78)",
+          "oklch(80% 0.0119 79.78)",
+          "oklch(95% 0.0119 79.78)"
+        ]
+      },
+      "panel-light": {
+        "role": "neutral",
+        "displayName": "Panel Light",
+        "tonalRamp": [
+          "oklch(15% 0.0258 78.91)",
+          "oklch(25% 0.0258 78.91)",
+          "oklch(35% 0.0258 78.91)",
+          "oklch(45% 0.0258 78.91)",
+          "oklch(55% 0.0258 78.91)",
+          "oklch(65% 0.0258 78.91)",
+          "oklch(80% 0.0258 78.91)",
+          "oklch(95% 0.0258 78.91)"
+        ]
+      },
+      "card-light": {
+        "role": "neutral",
+        "displayName": "Card Light",
+        "tonalRamp": [
+          "oklch(15% 0.0000 89.88)",
+          "oklch(25% 0.0000 89.88)",
+          "oklch(35% 0.0000 89.88)",
+          "oklch(45% 0.0000 89.88)",
+          "oklch(55% 0.0000 89.88)",
+          "oklch(65% 0.0000 89.88)",
+          "oklch(80% 0.0000 89.88)",
+          "oklch(95% 0.0000 89.88)"
+        ]
+      },
+      "rule-light": {
+        "role": "neutral",
+        "displayName": "Rule Light",
+        "tonalRamp": [
+          "oklch(15% 0.0280 72.76)",
+          "oklch(25% 0.0280 72.76)",
+          "oklch(35% 0.0280 72.76)",
+          "oklch(45% 0.0280 72.76)",
+          "oklch(55% 0.0280 72.76)",
+          "oklch(65% 0.0280 72.76)",
+          "oklch(80% 0.0280 72.76)",
+          "oklch(95% 0.0280 72.76)"
+        ]
+      },
+      "ink-light": {
+        "role": "neutral",
+        "displayName": "Ink Light",
+        "tonalRamp": [
+          "oklch(15% 0.0220 57.66)",
+          "oklch(25% 0.0220 57.66)",
+          "oklch(35% 0.0220 57.66)",
+          "oklch(45% 0.0220 57.66)",
+          "oklch(55% 0.0220 57.66)",
+          "oklch(65% 0.0220 57.66)",
+          "oklch(80% 0.0220 57.66)",
+          "oklch(95% 0.0220 57.66)"
+        ]
+      },
+      "ink-secondary-light": {
+        "role": "neutral",
+        "displayName": "Ink Secondary Light",
+        "tonalRamp": [
+          "oklch(15% 0.0331 61.72)",
+          "oklch(25% 0.0331 61.72)",
+          "oklch(35% 0.0331 61.72)",
+          "oklch(45% 0.0331 61.72)",
+          "oklch(55% 0.0331 61.72)",
+          "oklch(65% 0.0331 61.72)",
+          "oklch(80% 0.0331 61.72)",
+          "oklch(95% 0.0331 61.72)"
+        ]
+      },
+      "accent-light": {
+        "role": "primary",
+        "displayName": "Accent Light",
+        "tonalRamp": [
+          "oklch(15% 0.0799 47.15)",
+          "oklch(25% 0.0799 47.15)",
+          "oklch(35% 0.0799 47.15)",
+          "oklch(45% 0.0799 47.15)",
+          "oklch(55% 0.0799 47.15)",
+          "oklch(65% 0.0799 47.15)",
+          "oklch(80% 0.0799 47.15)",
+          "oklch(95% 0.0799 47.15)"
+        ]
+      },
+      "accent-soft-light": {
+        "role": "primary",
+        "displayName": "Accent Soft Light",
+        "tonalRamp": [
+          "oklch(15% 0.0378 75.13)",
+          "oklch(25% 0.0378 75.13)",
+          "oklch(35% 0.0378 75.13)",
+          "oklch(45% 0.0378 75.13)",
+          "oklch(55% 0.0378 75.13)",
+          "oklch(65% 0.0378 75.13)",
+          "oklch(80% 0.0378 75.13)",
+          "oklch(95% 0.0378 75.13)"
+        ]
+      },
+      "on-accent-light": {
+        "role": "primary",
+        "displayName": "On Accent Light",
+        "tonalRamp": [
+          "oklch(15% 0.0159 82.79)",
+          "oklch(25% 0.0159 82.79)",
+          "oklch(35% 0.0159 82.79)",
+          "oklch(45% 0.0159 82.79)",
+          "oklch(55% 0.0159 82.79)",
+          "oklch(65% 0.0159 82.79)",
+          "oklch(80% 0.0159 82.79)",
+          "oklch(95% 0.0159 82.79)"
+        ]
+      },
+      "signal-light": {
+        "role": "secondary",
+        "displayName": "Signal Light",
+        "tonalRamp": [
+          "oklch(15% 0.0760 67.37)",
+          "oklch(25% 0.0760 67.37)",
+          "oklch(35% 0.0760 67.37)",
+          "oklch(45% 0.0760 67.37)",
+          "oklch(55% 0.0760 67.37)",
+          "oklch(65% 0.0760 67.37)",
+          "oklch(80% 0.0760 67.37)",
+          "oklch(95% 0.0760 67.37)"
+        ]
+      },
+      "signal-soft-light": {
+        "role": "secondary",
+        "displayName": "Signal Soft Light",
+        "tonalRamp": [
+          "oklch(15% 0.0308 76.96)",
+          "oklch(25% 0.0308 76.96)",
+          "oklch(35% 0.0308 76.96)",
+          "oklch(45% 0.0308 76.96)",
+          "oklch(55% 0.0308 76.96)",
+          "oklch(65% 0.0308 76.96)",
+          "oklch(80% 0.0308 76.96)",
+          "oklch(95% 0.0308 76.96)"
+        ]
+      },
+      "alarm-light": {
+        "role": "tertiary",
+        "displayName": "Alarm Light",
+        "tonalRamp": [
+          "oklch(15% 0.1368 30.02)",
+          "oklch(25% 0.1368 30.02)",
+          "oklch(35% 0.1368 30.02)",
+          "oklch(45% 0.1368 30.02)",
+          "oklch(55% 0.1368 30.02)",
+          "oklch(65% 0.1368 30.02)",
+          "oklch(80% 0.1368 30.02)",
+          "oklch(95% 0.1368 30.02)"
+        ]
+      },
+      "alarm-soft-light": {
+        "role": "tertiary",
+        "displayName": "Alarm Soft Light",
+        "tonalRamp": [
+          "oklch(15% 0.0204 40.53)",
+          "oklch(25% 0.0204 40.53)",
+          "oklch(35% 0.0204 40.53)",
+          "oklch(45% 0.0204 40.53)",
+          "oklch(55% 0.0204 40.53)",
+          "oklch(65% 0.0204 40.53)",
+          "oklch(80% 0.0204 40.53)",
+          "oklch(95% 0.0204 40.53)"
+        ]
+      },
+      "camera": {
+        "role": "neutral",
+        "displayName": "Camera",
+        "tonalRamp": [
+          "oklch(15% 0.0127 55.52)",
+          "oklch(25% 0.0127 55.52)",
+          "oklch(35% 0.0127 55.52)",
+          "oklch(45% 0.0127 55.52)",
+          "oklch(55% 0.0127 55.52)",
+          "oklch(65% 0.0127 55.52)",
+          "oklch(80% 0.0127 55.52)",
+          "oklch(95% 0.0127 55.52)"
+        ]
+      },
+      "camera-ink": {
+        "role": "neutral",
+        "displayName": "Camera Ink",
+        "tonalRamp": [
+          "oklch(15% 0.0159 82.79)",
+          "oklch(25% 0.0159 82.79)",
+          "oklch(35% 0.0159 82.79)",
+          "oklch(45% 0.0159 82.79)",
+          "oklch(55% 0.0159 82.79)",
+          "oklch(65% 0.0159 82.79)",
+          "oklch(80% 0.0159 82.79)",
+          "oklch(95% 0.0159 82.79)"
+        ]
+      },
+      "camera-muted": {
+        "role": "neutral",
+        "displayName": "Camera Muted",
+        "tonalRamp": [
+          "oklch(15% 0.0250 71.44)",
+          "oklch(25% 0.0250 71.44)",
+          "oklch(35% 0.0250 71.44)",
+          "oklch(45% 0.0250 71.44)",
+          "oklch(55% 0.0250 71.44)",
+          "oklch(65% 0.0250 71.44)",
+          "oklch(80% 0.0250 71.44)",
+          "oklch(95% 0.0250 71.44)"
+        ]
+      },
+      "paper-dark": {
+        "role": "neutral",
+        "displayName": "Paper Dark",
+        "tonalRamp": [
+          "oklch(15% 0.0124 55.60)",
+          "oklch(25% 0.0124 55.60)",
+          "oklch(35% 0.0124 55.60)",
+          "oklch(45% 0.0124 55.60)",
+          "oklch(55% 0.0124 55.60)",
+          "oklch(65% 0.0124 55.60)",
+          "oklch(80% 0.0124 55.60)",
+          "oklch(95% 0.0124 55.60)"
+        ]
+      },
+      "panel-dark": {
+        "role": "neutral",
+        "displayName": "Panel Dark",
+        "tonalRamp": [
+          "oklch(15% 0.0259 59.14)",
+          "oklch(25% 0.0259 59.14)",
+          "oklch(35% 0.0259 59.14)",
+          "oklch(45% 0.0259 59.14)",
+          "oklch(55% 0.0259 59.14)",
+          "oklch(65% 0.0259 59.14)",
+          "oklch(80% 0.0259 59.14)",
+          "oklch(95% 0.0259 59.14)"
+        ]
+      },
+      "card-dark": {
+        "role": "neutral",
+        "displayName": "Card Dark",
+        "tonalRamp": [
+          "oklch(15% 0.0187 59.71)",
+          "oklch(25% 0.0187 59.71)",
+          "oklch(35% 0.0187 59.71)",
+          "oklch(45% 0.0187 59.71)",
+          "oklch(55% 0.0187 59.71)",
+          "oklch(65% 0.0187 59.71)",
+          "oklch(80% 0.0187 59.71)",
+          "oklch(95% 0.0187 59.71)"
+        ]
+      },
+      "rule-dark": {
+        "role": "neutral",
+        "displayName": "Rule Dark",
+        "tonalRamp": [
+          "oklch(15% 0.0328 61.08)",
+          "oklch(25% 0.0328 61.08)",
+          "oklch(35% 0.0328 61.08)",
+          "oklch(45% 0.0328 61.08)",
+          "oklch(55% 0.0328 61.08)",
+          "oklch(65% 0.0328 61.08)",
+          "oklch(80% 0.0328 61.08)",
+          "oklch(95% 0.0328 61.08)"
+        ]
+      },
+      "ink-dark": {
+        "role": "neutral",
+        "displayName": "Ink Dark",
+        "tonalRamp": [
+          "oklch(15% 0.0182 78.24)",
+          "oklch(25% 0.0182 78.24)",
+          "oklch(35% 0.0182 78.24)",
+          "oklch(45% 0.0182 78.24)",
+          "oklch(55% 0.0182 78.24)",
+          "oklch(65% 0.0182 78.24)",
+          "oklch(80% 0.0182 78.24)",
+          "oklch(95% 0.0182 78.24)"
+        ]
+      },
+      "ink-secondary-dark": {
+        "role": "neutral",
+        "displayName": "Ink Secondary Dark",
+        "tonalRamp": [
+          "oklch(15% 0.0334 68.82)",
+          "oklch(25% 0.0334 68.82)",
+          "oklch(35% 0.0334 68.82)",
+          "oklch(45% 0.0334 68.82)",
+          "oklch(55% 0.0334 68.82)",
+          "oklch(65% 0.0334 68.82)",
+          "oklch(80% 0.0334 68.82)",
+          "oklch(95% 0.0334 68.82)"
+        ]
+      },
+      "accent-dark": {
+        "role": "primary",
+        "displayName": "Accent Dark",
+        "tonalRamp": [
+          "oklch(15% 0.0882 68.60)",
+          "oklch(25% 0.0882 68.60)",
+          "oklch(35% 0.0882 68.60)",
+          "oklch(45% 0.0882 68.60)",
+          "oklch(55% 0.0882 68.60)",
+          "oklch(65% 0.0882 68.60)",
+          "oklch(80% 0.0882 68.60)",
+          "oklch(95% 0.0882 68.60)"
+        ]
+      },
+      "accent-soft-dark": {
+        "role": "primary",
+        "displayName": "Accent Soft Dark",
+        "tonalRamp": [
+          "oklch(15% 0.0359 60.96)",
+          "oklch(25% 0.0359 60.96)",
+          "oklch(35% 0.0359 60.96)",
+          "oklch(45% 0.0359 60.96)",
+          "oklch(55% 0.0359 60.96)",
+          "oklch(65% 0.0359 60.96)",
+          "oklch(80% 0.0359 60.96)",
+          "oklch(95% 0.0359 60.96)"
+        ]
+      },
+      "on-accent-dark": {
+        "role": "primary",
+        "displayName": "On Accent Dark",
+        "tonalRamp": [
+          "oklch(15% 0.0275 58.44)",
+          "oklch(25% 0.0275 58.44)",
+          "oklch(35% 0.0275 58.44)",
+          "oklch(45% 0.0275 58.44)",
+          "oklch(55% 0.0275 58.44)",
+          "oklch(65% 0.0275 58.44)",
+          "oklch(80% 0.0275 58.44)",
+          "oklch(95% 0.0275 58.44)"
+        ]
+      },
+      "signal-dark": {
+        "role": "secondary",
+        "displayName": "Signal Dark",
+        "tonalRamp": [
+          "oklch(15% 0.0841 77.49)",
+          "oklch(25% 0.0841 77.49)",
+          "oklch(35% 0.0841 77.49)",
+          "oklch(45% 0.0841 77.49)",
+          "oklch(55% 0.0841 77.49)",
+          "oklch(65% 0.0841 77.49)",
+          "oklch(80% 0.0841 77.49)",
+          "oklch(95% 0.0841 77.49)"
+        ]
+      },
+      "signal-soft-dark": {
+        "role": "secondary",
+        "displayName": "Signal Soft Dark",
+        "tonalRamp": [
+          "oklch(15% 0.0337 64.47)",
+          "oklch(25% 0.0337 64.47)",
+          "oklch(35% 0.0337 64.47)",
+          "oklch(45% 0.0337 64.47)",
+          "oklch(55% 0.0337 64.47)",
+          "oklch(65% 0.0337 64.47)",
+          "oklch(80% 0.0337 64.47)",
+          "oklch(95% 0.0337 64.47)"
+        ]
+      },
+      "alarm-dark": {
+        "role": "tertiary",
+        "displayName": "Alarm Dark",
+        "tonalRamp": [
+          "oklch(15% 0.0845 32.87)",
+          "oklch(25% 0.0845 32.87)",
+          "oklch(35% 0.0845 32.87)",
+          "oklch(45% 0.0845 32.87)",
+          "oklch(55% 0.0845 32.87)",
+          "oklch(65% 0.0845 32.87)",
+          "oklch(80% 0.0845 32.87)",
+          "oklch(95% 0.0845 32.87)"
+        ]
+      },
+      "alarm-soft-dark": {
+        "role": "tertiary",
+        "displayName": "Alarm Soft Dark",
+        "tonalRamp": [
+          "oklch(15% 0.0519 34.48)",
+          "oklch(25% 0.0519 34.48)",
+          "oklch(35% 0.0519 34.48)",
+          "oklch(45% 0.0519 34.48)",
+          "oklch(55% 0.0519 34.48)",
+          "oklch(65% 0.0519 34.48)",
+          "oklch(80% 0.0519 34.48)",
+          "oklch(95% 0.0519 34.48)"
+        ]
+      },
+      "camera-overlay": {
+        "role": "neutral",
+        "displayName": "Camera Overlay"
+      },
+      "camera-close": {
+        "role": "neutral",
+        "displayName": "Camera Close",
+        "tonalRamp": [
+          "oklch(15% 0.0264 54.13)",
+          "oklch(25% 0.0264 54.13)",
+          "oklch(35% 0.0264 54.13)",
+          "oklch(45% 0.0264 54.13)",
+          "oklch(55% 0.0264 54.13)",
+          "oklch(65% 0.0264 54.13)",
+          "oklch(80% 0.0264 54.13)",
+          "oklch(95% 0.0264 54.13)"
+        ]
+      },
+      "camera-close-pressed": {
+        "role": "neutral",
+        "displayName": "Camera Close Pressed",
+        "tonalRamp": [
+          "oklch(15% 0.0360 56.42)",
+          "oklch(25% 0.0360 56.42)",
+          "oklch(35% 0.0360 56.42)",
+          "oklch(45% 0.0360 56.42)",
+          "oklch(55% 0.0360 56.42)",
+          "oklch(65% 0.0360 56.42)",
+          "oklch(80% 0.0360 56.42)",
+          "oklch(95% 0.0360 56.42)"
+        ]
+      },
+      "nav-glass-light": {
+        "role": "neutral",
+        "displayName": "Nav Glass Light"
+      },
+      "nav-glass-dark": {
+        "role": "neutral",
+        "displayName": "Nav Glass Dark"
+      },
+      "nav-blur-overlay-light": {
+        "role": "neutral",
+        "displayName": "Nav Blur Overlay Light"
+      },
+      "nav-blur-overlay-dark": {
+        "role": "neutral",
+        "displayName": "Nav Blur Overlay Dark"
+      }
+    },
+    "typographyMeta": {
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Adder and Settings screen headings."
+      },
+      "display": {
+        "displayName": "Display",
+        "purpose": "Shared Display default and unlinked prompt."
+      },
+      "section": {
+        "displayName": "Section",
+        "purpose": "Section headings."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Medium event record titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Reading prose and settings rows."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Captions and disclosure."
+      },
+      "metadata": {
+        "displayName": "Metadata",
+        "purpose": "Timestamps, counts, badge, and navigation labels."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Shared button titles."
+      },
+      "mono-ios": {
+        "displayName": "Mono Ios",
+        "purpose": "iOS technical values."
+      },
+      "mono-android": {
+        "displayName": "Mono Android",
+        "purpose": "Android technical values."
+      }
+    },
+    "shadows": [
+      {
+        "name": "floating-navigation-light",
+        "value": "color #271A10; offset (0, 6); opacity 0.16; radius 18; Android elevation 8",
+        "purpose": "Warm lift under floating navigation."
+      },
+      {
+        "name": "floating-navigation-dark",
+        "value": "color #271A10; offset (0, 6); opacity 0.3; radius 18; Android elevation 8",
+        "purpose": "Warm lift under floating navigation in dark appearance."
+      }
+    ],
+    "motion": [
+      {
+        "name": "payload-reveal",
+        "value": "opacity 0.4 to 1 over 180ms",
+        "purpose": "Native payload disclosure when Reduce Motion is off."
+      },
+      {
+        "name": "button-press",
+        "value": "opacity 0.75",
+        "purpose": "Shared button press feedback."
+      },
+      {
+        "name": "tab-press",
+        "value": "opacity 0.7",
+        "purpose": "Floating navigation press feedback."
+      }
+    ],
+    "breakpoints": []
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Visual sample of the shared native primary variant; the alarm variant is available in code.",
+      "html": "<button class=\"ds-btn-primary\">Scan QR code</button>",
+      "css": ".ds-btn-primary{min-height:52px;padding:14px 20px;border:0;border-radius:18px;background:#713F25;color:#FFF9EE;font:700 16px system-ui;letter-spacing:-.3px;cursor:pointer}.ds-btn-primary:hover,.ds-btn-primary:active{opacity:.75}.ds-btn-primary:focus-visible{outline:2px solid #713F25;outline-offset:3px}.ds-btn-primary:disabled{opacity:.45;cursor:default}@media(prefers-color-scheme:dark){.ds-btn-primary{background:#D0A16D;color:#271A10}.ds-btn-primary:focus-visible{outline-color:#D0A16D}}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Visual sample of the shared native secondary variant; the alarm variant is available in code.",
+      "html": "<button class=\"ds-btn-secondary\">Not now</button>",
+      "css": ".ds-btn-secondary{min-height:52px;padding:14px 20px;border:0;border-radius:18px;background:#E7DCCB;color:#713F25;font:700 16px system-ui;letter-spacing:-.3px;cursor:pointer}.ds-btn-secondary:hover,.ds-btn-secondary:active{opacity:.75}.ds-btn-secondary:focus-visible{outline:2px solid #713F25;outline-offset:3px}.ds-btn-secondary:disabled{opacity:.45;cursor:default}@media(prefers-color-scheme:dark){.ds-btn-secondary{background:#382B21;color:#D0A16D}.ds-btn-secondary:focus-visible{outline-color:#D0A16D}}"
+    },
+    {
+      "name": "Alarm Button",
+      "kind": "button",
+      "refersTo": "button-alarm",
+      "description": "Visual sample of the shared native alarm variant; the alarm variant is available in code.",
+      "html": "<button class=\"ds-btn-alarm\">Unlink this phone</button>",
+      "css": ".ds-btn-alarm{min-height:52px;padding:14px 20px;border:0;border-radius:18px;background:#F4E3DD;color:#A13C2F;font:700 16px system-ui;letter-spacing:-.3px;cursor:pointer}.ds-btn-alarm:hover,.ds-btn-alarm:active{opacity:.75}.ds-btn-alarm:focus-visible{outline:2px solid #713F25;outline-offset:3px}.ds-btn-alarm:disabled{opacity:.45;cursor:default}@media(prefers-color-scheme:dark){.ds-btn-alarm{background:#492820;color:#E4A091}.ds-btn-alarm:focus-visible{outline-color:#D0A16D}}"
+    },
+    {
+      "name": "Linked Endpoint",
+      "kind": "card",
+      "refersTo": "linked-instance",
+      "description": "Visual sample of the linked-host panel; sample endpoint is illustrative.",
+      "html": "<div class=\"ds-linked\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" aria-hidden=\"true\"><path d=\"m9 15 6-6M8 16l-1 1a4 4 0 0 1-6-6l4-4a4 4 0 0 1 6 0M16 8l1-1a4 4 0 0 1 6 6l-4 4a4 4 0 0 1-6 0\"/></svg><div><span>Linked to</span><code>adder.example.com</code></div></div>",
+      "css": ".ds-linked{display:flex;align-items:center;gap:12px;padding:20px;border-radius:22px;background:#713F25;color:#FFF9EE;font-family:system-ui}.ds-linked svg{flex-shrink:0}.ds-linked>div{display:flex;flex-direction:column;gap:4px;min-width:0}.ds-linked span{font-size:13px;line-height:19px}.ds-linked code{color:#FFF9EE;font:14px Menlo,monospace;overflow-wrap:anywhere}@media(prefers-color-scheme:dark){.ds-linked{background:#D0A16D;color:#271A10}.ds-linked code{color:#271A10}}"
+    },
+    {
+      "name": "Latest Badge",
+      "kind": "chip",
+      "refersTo": "latest-badge",
+      "description": "Visual sample of the labeled first-session-record marker.",
+      "html": "<span class=\"ds-latest\">Latest</span>",
+      "css": ".ds-latest{display:inline-block;padding:3px 10px;border-radius:12px;background:#EFE1CD;color:#755026;font:600 12px/17px system-ui}@media(prefers-color-scheme:dark){.ds-latest{background:#453526;color:#E1BC84}}"
+    },
+    {
+      "name": "Event Record",
+      "kind": "card",
+      "refersTo": "event-record",
+      "description": "Interactive browser disclosure is a sample of the native inline payload structure; values are illustrative.",
+      "html": "<details class=\"ds-event\"><summary><span class=\"ds-event-heading\"><strong>New block</strong><span>8m ago</span></span><span class=\"ds-event-latest\">Latest</span><span class=\"ds-event-body\">A new block was added to the chain.</span><span class=\"ds-event-show\">View event data <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"m4 6 4 4 4-4\"/></svg></span><span class=\"ds-event-hide\">Hide event data</span></summary><div class=\"ds-event-data\"><span>event_id</span><code>example-event-01</code><span>network</span><code>example-network</code></div></details>",
+      "css": ".ds-event{background:#FFFFFF;color:#2F241C;border-radius:22px;overflow:hidden;font-family:system-ui}.ds-event summary{display:flex;flex-direction:column;gap:8px;padding:18px 20px;list-style:none;cursor:pointer}.ds-event summary::-webkit-details-marker{display:none}.ds-event summary:hover,.ds-event summary:active{opacity:.72}.ds-event summary:focus-visible{outline:2px solid #713F25;outline-offset:-3px}.ds-event-heading{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px}.ds-event-heading strong{font-size:18px;font-weight:600;letter-spacing:-.3px}.ds-event-heading>span,.ds-event-data>span{font-size:12px;line-height:17px;color:#6D5B4C}.ds-event-latest{align-self:flex-start;border-radius:12px;background:#EFE1CD;color:#755026;padding:3px 10px;font:600 12px/17px system-ui}.ds-event-body{font-size:17px;line-height:25px;color:#6D5B4C}.ds-event-show,.ds-event-hide{color:#713F25;font-size:13px;line-height:19px;font-weight:600}.ds-event-show svg{vertical-align:middle}.ds-event-hide{display:none}.ds-event[open] .ds-event-show{display:none}.ds-event[open] .ds-event-hide{display:block}.ds-event-data{display:grid;gap:4px;padding:0 20px 18px;animation:ds-event-fade 180ms}.ds-event-data code{font:13px Menlo,monospace;overflow-wrap:anywhere;margin-bottom:8px}@keyframes ds-event-fade{from{opacity:.4}to{opacity:1}}@media(prefers-reduced-motion:reduce){.ds-event-data{animation:none}}@media(prefers-color-scheme:dark){.ds-event{background:#2B221B;color:#F5EDE1}.ds-event-heading>span,.ds-event-body,.ds-event-data>span{color:#C7B5A2}.ds-event-latest{background:#453526;color:#E1BC84}.ds-event-show,.ds-event-hide{color:#D0A16D}.ds-event summary:focus-visible{outline-color:#D0A16D}}"
+    },
+    {
+      "name": "Settings Group",
+      "kind": "card",
+      "refersTo": "settings-group",
+      "description": "Visual sample; browser Copy has no clipboard behavior.",
+      "html": "<div class=\"ds-settings\"><div class=\"ds-settings-row\"><span>Notifications</span><span class=\"ds-settings-muted\">Allowed</span></div><div class=\"ds-settings-token\"><span>Push token</span><div><code>example123\u2026456abc</code><button>Copy</button></div></div></div>",
+      "css": ".ds-settings{background:#FFFFFF;border-radius:22px;color:#2F241C;font:17px/25px system-ui;overflow:hidden}.ds-settings-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:18px}.ds-settings-row>span:first-child{flex-grow:1}.ds-settings-muted{color:#6D5B4C}.ds-settings-token{display:flex;flex-direction:column;gap:8px;padding:18px}.ds-settings-token>div{display:flex;gap:8px;align-items:center}.ds-settings-token code{flex:1;font:13px Menlo,monospace;color:#6D5B4C;overflow-wrap:anywhere}.ds-settings-token button{min-width:48px;min-height:48px;border:0;padding:0;background:transparent;color:#713F25;font:600 17px/25px system-ui;cursor:pointer}.ds-settings-token button:hover,.ds-settings-token button:active{opacity:.65}.ds-settings-token button:focus-visible{outline:2px solid #713F25}@media(prefers-color-scheme:dark){.ds-settings{background:#2B221B;color:#F5EDE1}.ds-settings-muted,.ds-settings-token code{color:#C7B5A2}.ds-settings-token button{color:#D0A16D}.ds-settings-token button:focus-visible{outline-color:#D0A16D}}"
+    },
+    {
+      "name": "Floating Glass Navigation",
+      "kind": "nav",
+      "refersTo": "tab-bar",
+      "description": "Browser visual sample of the floating native glass pill. Backdrop blur approximates native GlassView/BlurView; sample attributes expose opaque fallback. SVG icons approximate platform symbols.",
+      "html": "<nav class=\"ds-tabs\" aria-label=\"Adder\"><button aria-current=\"page\"><span><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" aria-hidden=\"true\"><path d=\"M8 6h13M8 12h13M8 18h13\"/><circle cx=\"3\" cy=\"6\" r=\".6\"/><circle cx=\"3\" cy=\"12\" r=\".6\"/><circle cx=\"3\" cy=\"18\" r=\".6\"/></svg></span>Feed</button><button><span><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"8\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M12 1v3M12 20v3M1 12h3M20 12h3M4 4l2 2M18 18l2 2M4 20l2-2M18 6l2-2\"/></svg></span>Settings</button></nav>",
+      "css": ".ds-tabs{display:flex;gap:6px;padding:6px;width:100%;max-width:360px;border-radius:36px;background:rgba(244,239,231,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 6px 18px rgba(39,26,16,.16)}.ds-tabs button{flex:1;min-height:60px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:7px 12px;border:0;border-radius:30px;background:transparent;color:#2F241C;font:400 12px/17px system-ui;text-align:center;cursor:pointer}.ds-tabs button>span{display:flex;align-items:center;justify-content:center}.ds-tabs button[aria-current]{background:#713F25;color:#FFF9EE;font-weight:600}.ds-tabs button:hover,.ds-tabs button:active{opacity:.7}.ds-tabs button:focus-visible{outline:2px solid #713F25;outline-offset:2px}.ds-tabs[data-opaque]{background:#FFFFFF;backdrop-filter:none;-webkit-backdrop-filter:none}@supports not (backdrop-filter:blur(1px)){.ds-tabs{background:#FFFFFF}}@media(prefers-color-scheme:dark){.ds-tabs{background:rgba(43,34,27,.72);box-shadow:0 6px 18px rgba(39,26,16,.3)}.ds-tabs button{color:#F5EDE1}.ds-tabs button[aria-current]{background:#D0A16D;color:#271A10}.ds-tabs button:focus-visible{outline-color:#D0A16D}.ds-tabs[data-opaque]{background:#2B221B}@supports not (backdrop-filter:blur(1px)){.ds-tabs{background:#2B221B}}}"
+    },
+    {
+      "name": "Scanner Status",
+      "kind": "card",
+      "refersTo": "scanner-status",
+      "description": "Visual sample of scanner status; camera preview and permissions require native UI.",
+      "html": "<div class=\"ds-scanner\"><h3>Point at the code</h3><p>Your adder instance shows a QR code with its endpoint. Line it up in the frame.</p></div>",
+      "css": ".ds-scanner{display:flex;flex-direction:column;gap:12px;padding:22px;border-radius:22px;background:#FFFFFF;color:#2F241C;font-family:system-ui}.ds-scanner h3{margin:0;font-size:20px;font-weight:700;letter-spacing:-.3px}.ds-scanner p{margin:0;color:#6D5B4C;font-size:17px;line-height:25px}@media(prefers-color-scheme:dark){.ds-scanner{background:#2B221B;color:#F5EDE1}.ds-scanner p{color:#C7B5A2}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Rounded Inbox",
+    "overview": "Adder uses cream ground, white cards, deep brown text, and contrasting brown actions to make pairing and incoming events easy to read on a phone. The brown, tan, and cream palette comes from the existing Adder icon. Rounded surfaces and generous spacing establish a calm, mature mobile interface. Floating glass navigation adds the depth explicitly requested by the user. The name and app icon preserve Adder identity; working screens use text and platform symbols.\n\nThe user retained the clean, rounded direction, explicitly rejected divider-heavy presentation and pastels, and selected brown and beige with stronger contrast for an enterprise, App Store quality interface. This document records the implemented system in `src/theme.ts`, shared components, and the three screens. Frontmatter `px` values serialize React Native logical units; native text scales with system settings. Light/dark suffixes map to theme appearances and camera tokens are shared.",
+    "keyCharacteristics": [
+      "Cream ground, white cards, and contrasting brown actions.",
+      "Rounded cards and controls with spacing between groups.",
+      "Native typography, platform symbols, safe areas, and scalable content.",
+      "Inline disclosure for complete selectable event data.",
+      "A labeled amber Latest badge and floating glass navigation with filled selected tabs on both platforms."
+    ],
+    "rules": [
+      {
+        "name": "The Space Between Rule",
+        "body": "Separate cards and settings groups with spacing and tonal surfaces. Keep screen dividers, timeline rails, and decorative outlines absent; camera corner guides remain functional.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Native Reading Rule",
+        "body": "Preserve native text scaling, allow prose and data to wrap, and keep counts and timestamps subordinate to event content.",
+        "section": "typography"
+      },
+      {
+        "name": "The Shared Shape Rule",
+        "body": "Use the card and control radii for their respective surfaces and the selected tab capsule on both iOS and Android.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do pair light and dark palette roles when adding a surface.",
+      "Do separate groups with spacing and soft surface fills.",
+      "Do use Adder brown/tan for actions, amber for the labeled Latest badge, and brick/coral for errors or unlinking.",
+      "Do preserve native text scaling, wrapping, safe areas, touch targets, and Reduce Motion.",
+      "Do expose complete event payloads as readable, selectable values.",
+      "Do preserve the Adder name and existing app icon."
+    ],
+    "donts": [
+      "Don't add divider lines, timeline rails, decorative outlines, or card shadows; reserve glass and shadow for the floating navigation.",
+      "Don't place mascot illustrations in Feed, Settings, or scanner screens.",
+      "Don't remove the selected tab capsule from either platform.",
+      "Don't label a linked endpoint healthy or live without a measured health signal.",
+      "Don't treat fixture captures or JavaScript exports as proof of Android native appearance, physical QR pairing, or push delivery."
+    ]
+  }
+}
