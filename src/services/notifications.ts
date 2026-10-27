@@ -1,5 +1,6 @@
 import {
   AuthorizationStatus,
+  deleteToken,
   getMessaging,
   getToken,
   onMessage,
@@ -23,6 +24,10 @@ export function onForegroundMessage(cb: (m: RemoteMessage) => void) {
 
 export function getFcmToken() {
   return getToken(messaging);
+}
+
+export function deleteFcmToken() {
+  return deleteToken(messaging);
 }
 
 export function onFcmTokenRefresh(cb: (token: string) => void) {

@@ -25,7 +25,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 90
     env:
-      EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
       EXPO_PROJECT_ID: ${{ vars.EXPO_PROJECT_ID }}
       EXPO_OWNER: ${{ vars.EXPO_OWNER }}
       BUILD_PLATFORM: ${{ inputs.platform || 'android' }}
@@ -39,17 +38,21 @@ jobs:
           node-version: 22
           cache: npm
       - name: Require EAS project configuration
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
         run: |
           test -n "$EXPO_TOKEN" || { echo 'Configure the EXPO_TOKEN repository secret.' >&2; exit 1; }
           test -n "$EXPO_PROJECT_ID" || { echo 'Configure the EXPO_PROJECT_ID repository variable.' >&2; exit 1; }
       - uses: expo/expo-github-action@c7b66a9c327a43a8fa7c0158e7f30d6040d2481e # v8
+        # Its token input exports EXPO_TOKEN job-wide; authenticate in the build step instead.
         with:
           eas-version: 24.12.1
-          token: ${{ secrets.EXPO_TOKEN }}
       - run: npm ci
       - run: npm run typecheck
       - run: npm test
       - name: Build and publish artifacts to EAS
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
         run: eas build --platform "$BUILD_PLATFORM" --profile "$BUILD_PROFILE" --non-interactive --wait --json > eas-builds.json
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:

@@ -29,3 +29,15 @@ export async function sendFcmToken(url: string, token?: string): Promise<boolean
     return false;
   }
 }
+
+/** DELETEs `/fcm/{token}`; an absent registration is already deregistered. */
+export async function removeFcmToken(endpoint: string, token: string): Promise<boolean> {
+  try {
+    const url = new URL(endpoint);
+    url.pathname = `${url.pathname.replace(/\/+$/, '')}/${encodeURIComponent(token)}`;
+    const res = await fetch(url.toString(), { method: 'DELETE' });
+    return res.status === 204 || res.status === 404;
+  } catch {
+    return false;
+  }
+}

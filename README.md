@@ -25,6 +25,8 @@ PR checks run `npm ci`, TypeScript, regression tests, Expo dependency validation
 
 The **Build Expo app** workflow builds an Android production APK on pushes to `main`. Manual dispatch also supports iOS and development/preview profiles. EAS hosts the resulting binaries; the workflow uploads the build result JSON with their artifact links. Store submission is a separate operation.
 
+`EXPO_TOKEN` is available only to the configuration check and EAS build step. The pinned Expo action installs the CLI without its token input, which would otherwise export the credential to every subsequent step.
+
 Before running cloud builds:
 
 1. Link the app to the organization's EAS project and configure signing credentials with EAS CLI. Set the repository secret `EXPO_TOKEN` and variable `EXPO_PROJECT_ID`; set `EXPO_OWNER` when an organization owner is required. Use the same project ID for local EAS commands.
@@ -40,6 +42,7 @@ See [Expo native generation](https://docs.expo.dev/workflow/continuous-native-ge
 3. App POSTs `{"fcmToken": "..."}` to `apiEndpoint`; server responds `201`
 4. Push notifications arrive via FCM (foreground alert; background handler in `index.ts`)
 5. Restoring a linked endpoint uploads the current token; subsequent token rotations update its registration automatically.
+6. Unlinking deletes the server registration (`DELETE apiEndpoint/{encoded token}`) and revokes the Firebase token before clearing the saved link and session events. Changing endpoints performs the same cleanup and registers a fresh token. Failed cleanup keeps the link available for retry and blocks automatic token uploads; Settings reports unlink failures.
 
 ## Layout
 

@@ -3,8 +3,6 @@ import { getMessaging, setBackgroundMessageHandler } from '@react-native-firebas
 import App from './App';
 
 // Must be registered outside the React tree, before the app mounts.
-setBackgroundMessageHandler(getMessaging(), async (message) => {
-  console.log('Background message', message.notification?.title, message.notification?.body, message.data);
-});
+setBackgroundMessageHandler(getMessaging(), async () => {});
 
 registerRootComponent(App);

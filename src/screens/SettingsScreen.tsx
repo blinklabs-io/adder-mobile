@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Pressable, ScrollView, View } from "react-native";
+import { Alert, Pressable, ScrollView, View } from "react-native";
 import * as Clipboard from "expo-clipboard";
 import app from "../../app.json";
 import {
@@ -20,7 +20,7 @@ const PERMISSION_LABEL: Record<number, string> = {
 };
 export default function SettingsScreen({ onScan, bottomClearance }: { onScan: () => void; bottomClearance: number }) {
   const t = useTheme();
-  const { endpoint, token, permission, unlink } = useApp();
+  const { endpoint, token, permission, busy, unlink } = useApp();
   const [copied, setCopied] = useState(false);
   async function copyToken() {
     if (!token) return;
@@ -68,6 +68,7 @@ export default function SettingsScreen({ onScan, bottomClearance }: { onScan: ()
         </View>
         <Pressable
           accessibilityRole="button"
+          disabled={busy}
           onPress={onScan}
           style={({ pressed }) => ({
             minHeight: 56,
@@ -88,7 +89,13 @@ export default function SettingsScreen({ onScan, bottomClearance }: { onScan: ()
         {endpoint ? (
           <Pressable
             accessibilityRole="button"
-            onPress={unlink}
+            accessibilityState={{ disabled: busy, busy }}
+            disabled={busy}
+            onPress={async () => {
+              if (!await unlink()) {
+                Alert.alert("Couldn't unlink this phone", "The link is still saved. Check your connection and try again.");
+              }
+            }}
             style={({ pressed }) => ({
               minHeight: 48,
               paddingHorizontal: 18,
@@ -96,7 +103,7 @@ export default function SettingsScreen({ onScan, bottomClearance }: { onScan: ()
               opacity: pressed ? 0.65 : 1,
             })}
           >
-            <Body color={t.alarm}>Unlink this phone</Body>
+            <Body color={t.alarm}>{busy ? "Unlinking…" : "Unlink this phone"}</Body>
           </Pressable>
         ) : null}
       </View>
