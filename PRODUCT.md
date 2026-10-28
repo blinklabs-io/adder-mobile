@@ -22,6 +22,8 @@ Expo / React Native on iOS and Android. Feed and Settings are the two top-level 
 
 - The QR contains `apiEndpoint`; linking sends an FCM token and expects HTTP 201.
 - The endpoint persists; the feed currently holds events for the session.
+- Notification taps open the matching feed event from background or cold start. Transaction CIP20 messages render as readable, selectable text with raw metadata disclosure.
+- Registration/deletion HTTP waits are bounded. Settings supports registration retry and notification permission recovery; app resume refreshes permission status.
 - Firebase messaging requires a configured native development build.
 - Simulator screenshots use explicitly labeled local fixtures. They establish UI appearance, not push-delivery or physical-camera verification.
 - This redesign preserves those functions and existing product content; backend and release migration are outside its scope.

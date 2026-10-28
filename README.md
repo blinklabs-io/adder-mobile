@@ -40,9 +40,15 @@ See [Expo native generation](https://docs.expo.dev/workflow/continuous-native-ge
 1. Home → **Scan QR code**
 2. QR payload: `{"apiEndpoint": "https://host/path"}` (scheme defaults to `https://`)
 3. App POSTs `{"fcmToken": "..."}` to `apiEndpoint`; server responds `201`
-4. Push notifications arrive via FCM (foreground alert; background handler in `index.ts`)
+4. Foreground FCM messages appear in the Feed. Tapping a background notification or opening the app from a notification brings its event to the top and expands its details. Repeated callbacks keep one event row.
 5. Restoring a linked endpoint uploads the current token; subsequent token rotations update its registration automatically.
 6. Unlinking deletes the server registration (`DELETE apiEndpoint/{encoded token}`) and revokes the Firebase token before clearing the saved link and session events. Changing endpoints performs the same cleanup and registers a fresh token. Failed cleanup keeps the link available for retry and blocks automatic token uploads; Settings reports unlink failures.
+7. Registration and deletion HTTP requests abort after 15 seconds each. Settings offers registration retry and system notification settings; the scanner can retry its last valid endpoint without rescanning.
+8. Transaction CIP20 messages appear as selectable text, with raw metadata available in event details. The current server's notification-body format and structured `data.metadata` are supported. See [payload examples](docs/notification-payloads.md).
+
+Saved links now include their activation time; older saved URL strings restore automatically. Timestamped notifications from before a replacement link are ignored. Event contents remain session-only.
+
+Run `npm run check:firebase` to validate the existing Android/iOS Firebase files against the Adder app identifiers and project identity. See the [device validation checklist](docs/device-validation.md) for the remaining APNs, signing, camera, and delivery checks. Live device/simulator testing for these follow-up changes is deferred.
 
 ## Layout
 
@@ -53,14 +59,17 @@ See [Expo native generation](https://docs.expo.dev/workflow/continuous-native-ge
 - `src/components/TabBar.tsx`
 - `src/screens/` – `FeedScreen` (linked band + event list), `SettingsScreen`, `ScanScreen` (expo-camera)
 - `src/store.tsx` – linked endpoint (AsyncStorage), session events, token, permission
-- `src/services/` – `notifications.ts` (FCM), `api.ts` (QR parse, token POST)
+- `src/services/` – `notifications.ts` (FCM/permissions), `api.ts` (QR parse and bounded registration requests), `events.ts` (event and CIP20 parsing)
 - `docs/google-firebase/` – Firebase project setup guide
 
 Design: beige ground, white rounded cards, brown actions, and native system typography. Dark appearance uses espresso and brown surfaces. Navigation floats in a glass surface, with blur and accessibility fallbacks. Hosts and payload fields use selectable monospace text. See [the current UI preview](docs/ui-options/README.md) and [design system](DESIGN.md).
 
 ## TODOs
 
-- [ ] open app from push notification
+- [x] open and expand the matching event from a push notification
+- [x] add registration timeout/retry and notification settings recovery
+- [x] display CIP20 transaction messages and preserve raw metadata
+- [x] add Firebase identity validation and a repeatable device checklist
 - [x] update visual appearance
 - [ ] update app name / description
 - [x] replace Flutter CI workflows with Expo validation and EAS builds

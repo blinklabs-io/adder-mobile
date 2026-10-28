@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Alert, Pressable, ScrollView, View } from "react-native";
+import { Alert, Linking, Pressable, ScrollView, View } from "react-native";
 import * as Clipboard from "expo-clipboard";
 import app from "../../app.json";
 import {
   Body,
+  Button,
   Display,
   Icon,
   Mono,
@@ -20,7 +21,7 @@ const PERMISSION_LABEL: Record<number, string> = {
 };
 export default function SettingsScreen({ onScan, bottomClearance }: { onScan: () => void; bottomClearance: number }) {
   const t = useTheme();
-  const { endpoint, token, permission, busy, unlink } = useApp();
+  const { endpoint, token, permission, busy, unlink, registrationError, registrationPending, retryRegistration } = useApp();
   const [copied, setCopied] = useState(false);
   async function copyToken() {
     if (!token) return;
@@ -66,8 +67,16 @@ export default function SettingsScreen({ onScan, bottomClearance }: { onScan: ()
             </Mono>
           </View>
         </View>
+        {registrationError && endpoint ? (
+          <View style={{ paddingHorizontal: 18, paddingBottom: 18, gap: space.m }}>
+            <Body accessibilityRole="alert" size={15} color={t.alarm}>{registrationError}</Body>
+            <Button title="Retry registration" tone="secondary" disabled={busy} loading={registrationPending}
+              onPress={() => { void retryRegistration(); }} />
+          </View>
+        ) : null}
         <Pressable
           accessibilityRole="button"
+          accessibilityLabel={endpoint ? "Scan a new QR code" : "Scan QR code"}
           disabled={busy}
           onPress={onScan}
           style={({ pressed }) => ({
@@ -131,6 +140,13 @@ export default function SettingsScreen({ onScan, bottomClearance }: { onScan: ()
               ? "Checking…"
               : (PERMISSION_LABEL[permission] ?? "Unknown")}
           </Body>
+        </View>
+        <View style={{ paddingHorizontal: 18, paddingBottom: 18 }}>
+          <Button title="Open notification settings" tone="secondary" onPress={async () => {
+            try { await Linking.openSettings(); } catch {
+              Alert.alert("Open Settings manually", "Open your phone’s Settings, choose Adder, then change Notifications.");
+            }
+          }} />
         </View>
         <View style={{ padding: 18, gap: space.s }}>
           <Body>Push token</Body>

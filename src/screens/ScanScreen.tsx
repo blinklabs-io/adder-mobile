@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ActivityIndicator,
   Linking,
@@ -14,19 +14,25 @@ import { CameraView, useCameraPermissions } from "expo-camera";
 import * as Haptics from "expo-haptics";
 import { Body, Button, Display, Empty, Icon } from "../components/ui";
 import { parseQr } from "../services/api";
-import { useApp } from "../store";
+import { hostOf, useApp } from "../store";
 import { radii, space, useTheme } from "../theme";
 
 type Status =
   | { kind: "idle" }
   | { kind: "linking" }
-  | { kind: "error"; message: string };
+  | { kind: "error"; message: string; url?: string };
 export default function ScanScreen({ onClose }: { onClose: () => void }) {
   const t = useTheme();
   const { width } = useWindowDimensions();
   const { link } = useApp();
   const [permission, requestPermission] = useCameraPermissions();
   const [status, setStatus] = useState<Status>({ kind: "idle" });
+  const inFlight = useRef(false);
+  const active = useRef(true);
+  useEffect(() => {
+    active.current = true;
+    return () => { active.current = false; };
+  }, []);
   if (!permission)
     return (
       <SafeAreaView
@@ -71,7 +77,7 @@ export default function ScanScreen({ onClose }: { onClose: () => void }) {
       </SafeAreaView>
     );
   async function onScanned({ data }: { data: string }) {
-    if (status.kind === "linking") return;
+    if (inFlight.current) return;
     const url = parseQr(data);
     if (!url) {
       setStatus({
@@ -81,16 +87,26 @@ export default function ScanScreen({ onClose }: { onClose: () => void }) {
       });
       return;
     }
+    await linkEndpoint(url);
+  }
+  async function linkEndpoint(url: string) {
+    if (inFlight.current) return;
+    inFlight.current = true;
     setStatus({ kind: "linking" });
-    if (await link(url)) {
-      void Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
-      onClose();
-    } else {
-      void Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
-      setStatus({
-        kind: "error",
-        message: `Couldn't reach ${url}. Check the instance is up and try again.`,
-      });
+    try {
+      const linked = await link(url);
+      if (!active.current) return;
+      if (linked) {
+        void Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+        onClose();
+      } else {
+        void Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+        setStatus({ kind: "error", url, message: `Linking to ${hostOf(url)} did not finish. Check your connection and try again.` });
+      }
+    } catch {
+      if (active.current) setStatus({ kind: "error", url, message: "Linking failed. Check your connection and try again." });
+    } finally {
+      inFlight.current = false;
     }
   }
   const finder = Math.min(248, width - 96);
@@ -198,7 +214,10 @@ export default function ScanScreen({ onClose }: { onClose: () => void }) {
             {status.kind === "error" ? (
               <Button
                 title="Try again"
-                onPress={() => setStatus({ kind: "idle" })}
+                onPress={() => {
+                  if (status.kind === "error" && status.url) void linkEndpoint(status.url);
+                  else setStatus({ kind: "idle" });
+                }}
               />
             ) : null}
           </View>

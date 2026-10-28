@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Animated, FlatList, Pressable, View } from "react-native";
 import {
   Body,
@@ -14,7 +14,12 @@ import { radii, space, timeAgo, useReducedMotion, useTheme } from "../theme";
 
 export default function FeedScreen({ onScan, bottomClearance }: { onScan: () => void; bottomClearance: number }) {
   const t = useTheme();
-  const { endpoint, events } = useApp();
+  const { endpoint, events, openedEvent } = useApp();
+  const list = useRef<FlatList<AdderEvent>>(null);
+  const reducedMotion = useReducedMotion();
+  useEffect(() => {
+    if (openedEvent) list.current?.scrollToOffset({ offset: 0, animated: !reducedMotion });
+  }, [openedEvent, reducedMotion]);
   return (
     <View style={{ flex: 1, backgroundColor: t.paper }}>
       <View
@@ -46,10 +51,12 @@ export default function FeedScreen({ onScan, bottomClearance }: { onScan: () => 
         </Pressable>
       </View>
       <FlatList
+        ref={list}
         data={endpoint ? events : []}
+        extraData={openedEvent}
         keyExtractor={(e) => e.id}
         renderItem={({ item, index }) => (
-          <EventRow e={item} latest={index === 0} />
+          <EventRow e={item} latest={index === 0} openEvent={openedEvent?.id === item.id ? openedEvent : null} />
         )}
         ListHeaderComponent={
           <>
@@ -154,9 +161,10 @@ function Unlinked({ onScan }: { onScan: () => void }) {
     </View>
   );
 }
-function EventRow({ e, latest }: { e: AdderEvent; latest: boolean }) {
+function EventRow({ e, latest, openEvent }: { e: AdderEvent; latest: boolean; openEvent: AdderEvent | null }) {
   const t = useTheme();
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(Boolean(openEvent));
+  useEffect(() => { if (openEvent) setExpanded(true); }, [openEvent]);
   const fade = useRef(new Animated.Value(1)).current;
   const reducedMotion = useReducedMotion();
   const entries = Object.entries(e.data);
@@ -237,6 +245,12 @@ function EventRow({ e, latest }: { e: AdderEvent; latest: boolean }) {
               {e.body}
             </Body>
           ) : null}
+          {e.messages?.length ? (
+            <View style={{ gap: 4 }}>
+              <Body size={12} color={t.inkSecondary}>Transaction message</Body>
+              <Body selectable color={t.ink}>{e.messages.join("\n")}</Body>
+            </View>
+          ) : null}
           {entries.length ? (
             <View
               style={{ flexDirection: "row", alignItems: "center", gap: 4 }}
@@ -263,6 +277,12 @@ function EventRow({ e, latest }: { e: AdderEvent; latest: boolean }) {
               gap: 12,
             }}
           >
+            {e.originalBody ? (
+              <View style={{ gap: 4 }}>
+                <Body size={12} color={t.inkSecondary}>Original notification body</Body>
+                <Mono size={13} color={t.ink} selectable>{e.originalBody}</Mono>
+              </View>
+            ) : null}
             {entries.map(([key, value]) => (
               <View key={key} style={{ gap: 4 }}>
                 <Body size={12} color={t.inkSecondary}>

@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Modal, View } from "react-native";
 import { BlurTargetView } from "expo-blur";
 import { StatusBar } from "expo-status-bar";
@@ -7,7 +7,7 @@ import TabBar, { Tab } from "./src/components/TabBar";
 import FeedScreen from "./src/screens/FeedScreen";
 import ScanScreen from "./src/screens/ScanScreen";
 import SettingsScreen from "./src/screens/SettingsScreen";
-import { AppProvider } from "./src/store";
+import { AppProvider, useApp } from "./src/store";
 import { useReducedMotion, useTheme } from "./src/theme";
 
 export default function App() {
@@ -29,7 +29,14 @@ function Root() {
   const reducedMotion = useReducedMotion();
   const [tab, setTab] = useState<Tab>("feed");
   const [scanning, setScanning] = useState(false);
+  const { openedEvent } = useApp();
   const openScan = () => setScanning(true);
+  useEffect(() => {
+    if (openedEvent) {
+      setTab("feed");
+      setScanning(false);
+    }
+  }, [openedEvent]);
 
   return (
     <SafeAreaView edges={["top"]} style={{ flex: 1, backgroundColor: t.paper }}>
