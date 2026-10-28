@@ -194,7 +194,7 @@ function EventRow({ e, latest, openEvent }: { e: AdderEvent; latest: boolean; op
           disabled={!entries.length}
           accessibilityRole={entries.length ? "button" : undefined}
           accessibilityState={entries.length ? { expanded } : undefined}
-          accessibilityLabel={`${e.title}, ${timeAgo(e.receivedAt)}${e.body ? `. ${e.body}` : ""}`}
+          accessibilityLabel={`${e.title}, ${timeAgo(e.receivedAt)}${e.body ? `. ${e.body}` : ""}${e.messages?.length ? `. Transaction message: ${e.messages.join("\n")}` : ""}`}
           accessibilityHint={
             entries.length ? "Show or hide event data" : undefined
           }

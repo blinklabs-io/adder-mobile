@@ -68,6 +68,7 @@ test('CIP20 messages render as readable selectable text and a notification tap e
   state.openedEvent = event;
   await act(async () => { root = create(React.createElement(Feed, { onScan() {}, bottomClearance: 100 })); });
   expect(root.root.findAllByType('Body').some(node => node.props.selectable && node.props.children === 'Invoice 42\nPaid in ADA')).toBe(true);
+  expect(root.root.findAllByType('Pressable').some(node => node.props.accessibilityLabel?.includes('Transaction message: Invoice 42\nPaid in ADA'))).toBe(true);
   expect(root.root.findAllByType('Mono').some(node => node.props.children === '{raw}')).toBe(true);
 });
 
