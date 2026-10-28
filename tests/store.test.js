@@ -4,22 +4,31 @@ const { act, create } = require('react-test-renderer');
 jest.mock('@react-native-async-storage/async-storage', () => ({
   getItem: jest.fn(), setItem: jest.fn(), removeItem: jest.fn(),
 }));
+jest.mock('react-native', () => ({
+  AppState: { addEventListener: jest.fn() },
+  Platform: { OS: 'ios', Version: 26 },
+  PermissionsAndroid: {},
+}));
 jest.mock('@react-native-firebase/messaging', () => ({
   getMessaging: jest.fn(() => ({})),
   getToken: jest.fn(),
   deleteToken: jest.fn(),
   onTokenRefresh: jest.fn(),
   onMessage: jest.fn(),
+  onNotificationOpenedApp: jest.fn(),
+  getInitialNotification: jest.fn(),
+  hasPermission: jest.fn(),
   requestPermission: jest.fn(),
 }));
 
 const storage = require('@react-native-async-storage/async-storage');
 const messaging = require('@react-native-firebase/messaging');
+const { AppState } = require('react-native');
 const { AppProvider, useApp } = require('../src/store');
 
 global.IS_REACT_ACT_ENVIRONMENT = true;
 const endpoint = 'https://adder.example.com/register';
-let state, root, refresh, stopRefresh, stopMessage;
+let state, root, refresh, receive, opened, appState, stopRefresh, stopMessage, stopOpened, stopAppState;
 function Probe() { state = useApp(); return null; }
 async function mount() {
   await act(async () => { root = create(React.createElement(AppProvider, null, React.createElement(Probe))); });
@@ -36,14 +45,20 @@ beforeEach(() => {
   refresh = undefined;
   stopRefresh = jest.fn();
   stopMessage = jest.fn();
+  stopOpened = jest.fn();
+  stopAppState = jest.fn();
   storage.getItem.mockResolvedValue(endpoint);
   storage.setItem.mockResolvedValue();
   storage.removeItem.mockResolvedValue();
   messaging.getToken.mockResolvedValue('current-token');
   messaging.deleteToken.mockResolvedValue();
   messaging.requestPermission.mockResolvedValue(1);
+  messaging.hasPermission.mockResolvedValue(1);
+  messaging.getInitialNotification.mockResolvedValue(null);
   messaging.onTokenRefresh.mockImplementation((_, callback) => { refresh = callback; return stopRefresh; });
-  messaging.onMessage.mockReturnValue(stopMessage);
+  messaging.onMessage.mockImplementation((_, callback) => { receive = callback; return stopMessage; });
+  messaging.onNotificationOpenedApp.mockImplementation((_, callback) => { opened = callback; return stopOpened; });
+  AppState.addEventListener.mockImplementation((_, callback) => { appState = callback; return { remove: stopAppState }; });
   global.fetch = jest.fn().mockImplementation(async (_, options) => ({
     status: options.method === 'DELETE' ? 204 : 201,
   }));
@@ -117,7 +132,9 @@ test('cleans up both Firebase subscriptions on unmount', async () => {
   await act(async () => { root.unmount(); });
   root = null;
   expect(stopRefresh).toHaveBeenCalledTimes(1);
-  expect(stopMessage).toHaveBeenCalledTimes(1);
+  expect(stopMessage).toHaveBeenCalledTimes(messaging.onMessage.mock.calls.length);
+  expect(stopOpened).toHaveBeenCalledTimes(messaging.onNotificationOpenedApp.mock.calls.length);
+  expect(stopAppState).toHaveBeenCalledTimes(1);
 });
 
 test('manual linking persists the endpoint only after the server accepts it', async () => {
@@ -127,7 +144,7 @@ test('manual linking persists the endpoint only after the server accepts it', as
   await act(async () => { linked = await state.link(endpoint); });
   expect(linked).toBe(true);
   expect(state.endpoint).toBe(endpoint);
-  expect(storage.setItem).toHaveBeenCalledWith('adder.endpoint', endpoint);
+  expect(JSON.parse(storage.setItem.mock.calls[0][1])).toEqual({ url: endpoint, linkedAt: expect.any(Number) });
   expect(postedTokens()).toEqual([[endpoint, 'current-token']]);
 });
 
@@ -475,4 +492,137 @@ test('unlink removes every attempted automatic registration after ambiguous resp
   await act(async () => { refresh('later-token'); });
   await act(async () => { await state.unlink(); });
   expect(deletedTokens()).toContain(`${endpoint}/accepted-but-response-lost`);
+});
+
+test('notification taps select one event and foreground duplicates keep one row', async () => {
+  await mount();
+  const message = { messageId: 'event-1', notification: { title: 'Transaction', body: 'Confirmed' }, data: { type: 'transaction' } };
+  await act(async () => { receive(message); });
+  await act(async () => { opened(message); });
+  expect(state.events).toHaveLength(1);
+  expect(state.openedEvent.id).toBe('event-1');
+  const firstOpen = state.openedEvent;
+  await act(async () => { opened(message); });
+  expect(state.openedEvent).not.toBe(firstOpen);
+  expect(state.events).toHaveLength(1);
+});
+
+test('cold-start notification waits for endpoint restoration before selecting its event', async () => {
+  let restore;
+  storage.getItem.mockReturnValueOnce(new Promise(resolve => { restore = resolve; }));
+  messaging.getInitialNotification.mockResolvedValue({ messageId: 'cold-start', notification: { title: 'Transaction' } });
+  await mount();
+  expect(state.events).toEqual([]);
+  await act(async () => { restore(endpoint); });
+  expect(state.openedEvent.id).toBe('cold-start');
+  expect(state.events[0].id).toBe('cold-start');
+});
+
+test('notifications received while unlinked cannot populate or open the feed', async () => {
+  storage.getItem.mockResolvedValue(null);
+  messaging.getInitialNotification.mockResolvedValue({ messageId: 'old-notification' });
+  await mount();
+  await act(async () => { receive({ messageId: 'foreground' }); opened({ messageId: 'old-tap' }); });
+  expect(state.events).toEqual([]);
+  expect(state.openedEvent).toBeNull();
+});
+
+test('a late initial-notification read cannot reopen events after unlinking', async () => {
+  let initial;
+  messaging.getInitialNotification.mockReturnValue(new Promise(resolve => { initial = resolve; }));
+  await mount();
+  await act(async () => { await state.unlink(); });
+  await act(async () => { initial({ messageId: 'stale-cold-start' }); });
+  expect(state.events).toEqual([]);
+  expect(state.openedEvent).toBeNull();
+});
+
+test('restored link timestamps reject notifications sent before a replacement link', async () => {
+  storage.getItem.mockResolvedValue(JSON.stringify({ url: endpoint, linkedAt: 2000 }));
+  await mount();
+  await act(async () => { opened({ messageId: 'old-service', sentTime: 1000 }); });
+  expect(state.events).toEqual([]);
+  await act(async () => { opened({ messageId: 'current-service', sentTime: 3000 }); });
+  expect(state.openedEvent.id).toBe('current-service');
+  expect(postedTokens()).toEqual([[endpoint, 'current-token']]);
+});
+
+test('manual registration retry uses the current token without revocation or rescanning', async () => {
+  global.fetch.mockRejectedValueOnce(new Error('offline'));
+  await mount();
+  expect(state.registrationError).toEqual(expect.any(String));
+  let retried;
+  await act(async () => { retried = await state.retryRegistration(); });
+  expect(retried).toBe(true);
+  expect(state.registrationError).toBeNull();
+  expect(postedTokens()).toEqual([[endpoint, 'current-token'], [endpoint, 'current-token']]);
+  expect(messaging.deleteToken).not.toHaveBeenCalled();
+});
+
+test('registration retry cannot bypass pending unlink cleanup', async () => {
+  await mount();
+  global.fetch.mockResolvedValueOnce({ status: 500 });
+  await act(async () => { await state.unlink(); });
+  global.fetch.mockClear();
+  let retried;
+  await act(async () => { retried = await state.retryRegistration(); });
+  expect(retried).toBe(false);
+  expect(global.fetch).not.toHaveBeenCalled();
+});
+
+test('returning from system settings refreshes notification permission without another prompt', async () => {
+  await mount();
+  messaging.hasPermission.mockResolvedValue(-1);
+  await act(async () => { appState('active'); });
+  expect(state.permission).toBe(-1);
+  expect(messaging.requestPermission).toHaveBeenCalledTimes(1);
+});
+
+test('a retained old subscription cannot inject events after an endpoint replacement', async () => {
+  await mount();
+  const oldReceive = receive;
+  const oldOpen = opened;
+  messaging.getToken.mockResolvedValue('replacement-token');
+  await act(async () => { await state.link('https://replacement.example.com/fcm'); });
+  await act(async () => { oldReceive({ messageId: 'old-without-time' }); oldOpen({ messageId: 'old-tap-without-time' }); });
+  expect(state.events).toEqual([]);
+  expect(state.openedEvent).toBeNull();
+  await act(async () => { opened({ messageId: 'new-listener' }); });
+  expect(state.openedEvent.id).toBe('new-listener');
+});
+
+test('replacement cutoff follows old token revocation instead of the original button press', async () => {
+  const now = jest.spyOn(Date, 'now').mockReturnValue(1000);
+  await mount();
+  let finishDeletion, linking;
+  messaging.deleteToken.mockReturnValueOnce(new Promise(resolve => { finishDeletion = resolve; }));
+  await act(async () => { linking = state.link('https://replacement.example.com/fcm'); });
+  now.mockReturnValue(3000);
+  messaging.getToken.mockResolvedValue('replacement-token');
+  await act(async () => { finishDeletion(); await linking; });
+  await act(async () => { opened({ messageId: 'old-service-during-cleanup', sentTime: 2000 }); });
+  expect(state.events).toEqual([]);
+  expect(state.openedEvent).toBeNull();
+});
+
+test('registration retry retains a newer refresh received during a pending token read', async () => {
+  messaging.getToken.mockRejectedValueOnce(new Error('initial token unavailable'));
+  await mount();
+  let finishToken, retrying;
+  messaging.getToken.mockReturnValueOnce(new Promise(resolve => { finishToken = resolve; }));
+  await act(async () => { retrying = state.retryRegistration(); });
+  await act(async () => { refresh('newer-token'); });
+  await act(async () => { finishToken('older-token'); await retrying; });
+  expect(state.token).toBe('newer-token');
+  expect(postedTokens()).toEqual([[endpoint, 'newer-token']]);
+});
+
+test('a delayed initial permission prompt cannot overwrite the newer resumed permission status', async () => {
+  let initialPermission;
+  messaging.requestPermission.mockReturnValueOnce(new Promise(resolve => { initialPermission = resolve; }));
+  await mount();
+  messaging.hasPermission.mockResolvedValue(-1);
+  await act(async () => { appState('active'); });
+  await act(async () => { initialPermission(1); });
+  expect(state.permission).toBe(-1);
 });
