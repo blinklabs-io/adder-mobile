@@ -1,15 +1,38 @@
-# Generated automatically by org-governance-bot. Do not edit manually.
-name: "PR"
+name: PR
 
 on:
   pull_request:
 
+permissions:
+  contents: read
+
+concurrency:
+  group: expo-pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
-  orchestrate:
-    uses: blinklabs-io/actions/.github/workflows/reuseable-flutter.yml@main
-    with:
-      build-apk: false
-      channel: stable
-      flutter-version: 3.22.0
-      run-analyze: true
-      run-tests: true
+  validate:
+    name: Expo validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      CI: '1'
+      EXPO_NO_TELEMETRY: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npx expo install --check
+      - name: Create synthetic Firebase files for native generation
+        run: node scripts/create-ci-firebase-config.cjs
+      - name: Generate Expo native projects
+        run: npx expo prebuild --no-install --platform all
+      - name: Export iOS and Android bundles
+        run: npx expo export --platform all --output-dir dist
