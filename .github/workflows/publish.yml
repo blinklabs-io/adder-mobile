@@ -8,7 +8,7 @@ on:
 
 jobs:
   orchestrate:
-    uses: blinklabs-io/shared-actions/.github/workflows/reuseable-flutter.yml@d90d0eef9c2d00ecac430e1b184ac2993ac768fb
+    uses: blinklabs-io/shared-actions/.github/workflows/reuseable-flutter.yml@f0bde4fe4b4d229840d0dcd9bae60da0ecd90074
     secrets:
       GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
     with:
@@ -17,5 +17,6 @@ jobs:
       channel: stable
       create-google-services: true
       flutter-version: 3.22.0
+      java-version: '17'
       run-analyze: false
       run-tests: false
